@@ -31,8 +31,8 @@ Core infrastructure
 - ✓ src/lib/server/infra/db.ts — SurrealDB connection helper (✓ createDbConnection, ✓ getDb)
 - ✓ src/lib/server/conf/server.config.ts — Environment configuration (✓ DB_CONFIG)
 - ✓ src/lib/server/infra/auth.ts — Better Auth configuration (✓ getAuth function)
-- ✓ src/lib/shared-utils/auth/better-auth.adapter.ts — SurrealDB adapter (✓ exists!)
-- ✓ src/lib/shared-utils/auth/better-auth.service.ts — SurrealDB service (✓ exists!)
+- ✓ src/lib/domain/+shared/auth/better-auth.adapter.ts — SurrealDB adapter (✓ exists!)
+- ✓ src/lib/domain/+shared/auth/better-auth.service.ts — SurrealDB service (✓ exists!)
 - ✗ src/hooks.server.ts — Update to include auth middleware (only has paraglide)
 - ✗ src/app.d.ts — Add auth types to App.Locals (needs auth session types)
 - ✗ getAuthUser helper function — Extract user from locals (missing)
@@ -44,8 +44,8 @@ Core infrastructure
 
 ## Files to create/update (remaining work)
 **Critical missing pieces:**
-- src/lib/server/auth-helpers.ts — getAuthUser() and auth utilities
-- jest.config.mjs — Jest configuration for server tests
+- src/lib/server/auth-helpers.ts — getAuthUser() and auth utilities (✓ created)
+- jest.config.mjs — Jest configuration for server tests (✓ created; needs ts-jest or babel-jest to run TS)
 - src/hooks.server.ts — Add auth middleware (currently only has paraglide)
 
 **shadcn/ui setup (must do first)**
@@ -72,7 +72,7 @@ Core infrastructure
 - src/routes/user/settings/+page.svelte — settings with shadcn Switch/Select
 
 **APIs and services**
-- src/routes/api/auth/[...auth]/+server.ts — Better Auth handler
+- src/routes/api/auth/[...auth]/+server.ts — Better Auth handler (✓ created)
 - src/lib/domain/auth/services/AuthService.ts — login/logout/oauth helpers
 - src/lib/domain/user/services/UserService.ts — profile/settings helpers (with DI pattern)
 - src/lib/domain/+shared/schema/auth.ts — zod schemas for auth forms
@@ -100,19 +100,19 @@ Core infrastructure
 ## Scripts (to verify or add)
 Current scripts (✓ = exists, ✗ = missing):
 - ✓ "test:unit": "vitest"
-- ✗ "test:server": "jest --config jest.config.mjs" (missing jest.config.mjs)
+- ✓ "test:server": "jest --config jest.config.mjs" (jest.config.mjs created)
 - ✓ "preview": "vite preview"
-- ✓ "test:e2e": "set NODE_ENV=test && npm run preview && playwright test"
-- ✗ "preview:test": "set NODE_ENV=test && vite preview"
-- ✗ "preview:test-non-block": "set NODE_ENV=test && vite preview --strictPort=false --port=5173 &"
+- ✓ "test:e2e": "set NODE_ENV=test && playwright test"
+- ✓ "preview:test": "set NODE_ENV=test && vite preview --port=5173"
+- ✓ "preview:test-non-block": "set NODE_ENV=test && vite preview --strictPort=false --port=5173 &"
 
-**Script fixes needed:**
-- Playwright config uses port 4173 but plan assumes 5173 — align to 5173
-- Add missing jest.config.mjs file
-- Add missing preview:test scripts
+**Script fixes status:**
+- Playwright config now uses port 5173; Playwright starts/stops server (done)
+- jest.config.mjs file created (done)
+- preview:test scripts added (done)
 
 Notes
-- Use Playwright for E2E on npm run preview:test (non-block if running UI live)
+- Playwright e2e runs will auto-start preview via webServer; for manual checks use npm run preview:test-non-block and visit http://localhost:5173/
 - Frontend uses Vitest; backend uses Jest with Surreal mem DB for isolation
 
 ## Dependencies to install
@@ -128,17 +128,17 @@ Notes
 - Test auth flow: login → protected route → logout
 
 ## Acceptance checklist
-**Phase 1: Infrastructure** (mostly complete!)
+**Phase 1: Infrastructure** (progressing)
 - [x] DB helper (getDb) available — ✓ src/lib/server/infra/db.ts
 - [x] Server config with environment variables — ✓ src/lib/server/conf/server.config.ts
 - [x] Better Auth configuration — ✓ src/lib/server/infra/auth.ts (getAuth function)
-- [x] SurrealDB adapter for Better Auth — ✓ src/lib/shared-utils/auth/better-auth.adapter.ts
-- [x] SurrealDB service for Better Auth — ✓ src/lib/shared-utils/auth/better-auth.service.ts
+- [x] SurrealDB adapter for Better Auth — ✓ src/lib/domain/+shared/auth/better-auth.adapter.ts
+- [x] SurrealDB service for Better Auth — ✓ src/lib/domain/+shared/auth/better-auth.service.ts
 - [ ] Dependencies installed (better-auth, surrealdb.js, zod)
-- [ ] jest.config.mjs created and working
-- [ ] getAuthUser helper function — src/lib/server/auth-helpers.ts
+- [x] jest.config.mjs created (needs ts-jest/babel-jest to run TS)
+- [x] getAuthUser helper function — src/lib/server/auth-helpers.ts
 - [ ] Auth middleware in hooks.server.ts (currently only paraglide)
-- [ ] Scripts fixed (playwright port, preview:test variants)
+- [x] Scripts fixed (playwright port 5173, preview:test variants)
 - [ ] shadcn/ui setup and configuration
 
 **Phase 2: Structure & UI (using shadcn components)**
@@ -229,16 +229,19 @@ Svelte 5 snippet usage in shared UI:
 - SurrealDB connection (src/lib/server/infra/db.ts)
 - Server configuration (src/lib/server/conf/server.config.ts)
 - Better Auth setup function (src/lib/server/infra/auth.ts)
-- SurrealDB adapter for Better Auth (src/lib/shared-utils/auth/better-auth.adapter.ts)
-- Better Auth service implementation (src/lib/shared-utils/auth/better-auth.service.ts)
+- SurrealDB adapter for Better Auth (src/lib/domain/+shared/auth/better-auth.adapter.ts)
+- Better Auth service implementation (src/lib/domain/+shared/auth/better-auth.service.ts)
+- API route mounted (src/routes/api/auth/[...auth]/+server.ts)
+- Jest config scaffolded (jest.config.mjs)
+- Playwright port + scripts aligned to 5173 (preview:test)
+- Auth helpers created (src/lib/server/auth-helpers.ts)
 
 ❌ **Still needed:**
-- Dependencies installation (better-auth, surrealdb.js, zod)
+- Dependencies installation (zod; any jest transformers for TS)
 - Auth middleware integration in hooks.server.ts
-- getAuthUser helper function
-- Jest configuration
 - Domain structure and UI components
-- API routes for auth endpoints
+- shadcn/ui setup
+
 
 ## References
 - .augment/rules/spike.md (plan and validation playbook)
