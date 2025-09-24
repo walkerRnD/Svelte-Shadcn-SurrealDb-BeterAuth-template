@@ -10,6 +10,7 @@ data.db
 .wrangler
 /.svelte-kit
 /build
+project.inlang/cache/
 
 # OS
 .DS_Store

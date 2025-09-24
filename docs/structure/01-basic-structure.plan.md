@@ -37,29 +37,39 @@ Core infrastructure
 - ✗ src/app.d.ts — Add auth types to App.Locals (needs auth session types)
 - ✗ getAuthUser helper function — Extract user from locals (missing)
 
+**shadcn/ui setup (missing)**
+- ✗ components.json — shadcn/ui configuration file
+- ✗ shadcn-svelte components — Install and configure shadcn-svelte
+- ✗ src/lib/components/ui/ — shadcn component directory structure
+
 ## Files to create/update (remaining work)
 **Critical missing pieces:**
 - src/lib/server/auth-helpers.ts — getAuthUser() and auth utilities
 - jest.config.mjs — Jest configuration for server tests
 - src/hooks.server.ts — Add auth middleware (currently only has paraglide)
 
-**UI and layout**
-- src/routes/+layout.svelte — Update to use AppShell and auth context
-- src/lib/domain/+shared/ui/layout/AppShell.svelte — layout, header/footer, slot for pages
-- src/lib/domain/+shared/ui/organisms/NavBar.svelte — top navigation with auth state
-- src/routes/+page.svelte — Update home page with auth-aware content
+**shadcn/ui setup (must do first)**
+- components.json — shadcn/ui configuration file
+- Install shadcn-svelte components (Button, Card, Input, etc.)
+- src/lib/components/ui/ — shadcn component directory structure
 
-**Auth pages**
-- src/routes/auth/login/+page.svelte
-- src/routes/auth/create-account/+page.svelte
-- src/routes/auth/reset-password/+page.svelte
+**UI and layout (using shadcn components)**
+- src/routes/+layout.svelte — Update to use AppShell and auth context
+- src/lib/domain/+shared/ui/layout/AppShell.svelte — layout with shadcn components
+- src/lib/domain/+shared/ui/organisms/NavBar.svelte — navigation using shadcn Button/Menu
+- src/routes/+page.svelte — Update home page with shadcn Card/Button components
+
+**Auth pages (using shadcn forms)**
+- src/routes/auth/login/+page.svelte — login form with shadcn Input/Button
+- src/routes/auth/create-account/+page.svelte — registration with shadcn components
+- src/routes/auth/reset-password/+page.svelte — password reset with shadcn Form
 - src/routes/auth/logout/+server.ts — POST to clear session
 
-**User pages (auth-protected)**
-- src/routes/user/profile/+page.svelte
-- src/routes/user/account/change-password/+page.svelte
-- src/routes/user/account/delete-account/+page.svelte
-- src/routes/user/settings/+page.svelte
+**User pages (auth-protected, using shadcn components)**
+- src/routes/user/profile/+page.svelte — profile with shadcn Card/Avatar
+- src/routes/user/account/change-password/+page.svelte — password form with shadcn Input
+- src/routes/user/account/delete-account/+page.svelte — delete confirmation with shadcn Dialog
+- src/routes/user/settings/+page.svelte — settings with shadcn Switch/Select
 
 **APIs and services**
 - src/routes/api/auth/[...auth]/+server.ts — Better Auth handler
@@ -76,6 +86,8 @@ Core infrastructure
 - Prefer snippet props and {@render} over legacy slots
 - Use DOM event attributes (onclick, oninput, onsubmit) instead of on:click
 - Prefer callback props to createEventDispatcher
+- Use shadcn-svelte components for consistent UI design
+- Follow shadcn component patterns for forms, buttons, cards, etc.
 
 ## Environments
 - DEV (npm run dev): DB_HOST=surrealkv://data.db
@@ -104,9 +116,10 @@ Notes
 - Frontend uses Vitest; backend uses Jest with Surreal mem DB for isolation
 
 ## Dependencies to install
-- better-auth (authentication)
-- surrealdb.js (database client)
-- zod (schema validation)
+- better-auth (authentication) — ✓ already installed
+- surrealdb.js (database client) — ✓ already installed
+- zod (schema validation) — ✗ needs installation
+- shadcn-svelte (UI components) — ✗ needs installation and setup
 
 ## Validation (must do)
 - Start preview in test mode, then run Playwright
@@ -126,11 +139,13 @@ Notes
 - [ ] getAuthUser helper function — src/lib/server/auth-helpers.ts
 - [ ] Auth middleware in hooks.server.ts (currently only paraglide)
 - [ ] Scripts fixed (playwright port, preview:test variants)
+- [ ] shadcn/ui setup and configuration
 
-**Phase 2: Structure & UI**
+**Phase 2: Structure & UI (using shadcn components)**
 - [ ] Domain folder structure created
-- [ ] App shell and NavBar scaffolded and rendered across routes
-- [ ] All listed routes created with minimal content
+- [ ] shadcn components installed (Button, Card, Input, Form, etc.)
+- [ ] App shell and NavBar scaffolded with shadcn styling
+- [ ] All listed routes created with shadcn components
 - [ ] Dev Login visible when NODE_ENV in {development,test,local}
 
 **Phase 3: Integration**
@@ -144,7 +159,22 @@ Notes
 - [ ] All routes accessible and functional
 - [ ] Auth state properly managed across navigation
 
+## Implementation order (recommended)
+1. **First**: Install and configure shadcn/ui components
+2. **Then**: Create infrastructure (auth helpers, jest config)
+3. **Then**: Build UI components using shadcn components
+4. **Finally**: Wire up auth flow and test
+
 ## Implementation notes (scaffold excerpts)
+
+### shadcn/ui setup commands
+```bash
+# Install shadcn-svelte
+npx shadcn-svelte@latest init
+# Install common components
+npx shadcn-svelte@latest add button card input form dialog
+```
+
 Current Better Auth setup (✓ exists):
 ```ts
 // src/lib/server/infra/auth.ts (✓ implemented)

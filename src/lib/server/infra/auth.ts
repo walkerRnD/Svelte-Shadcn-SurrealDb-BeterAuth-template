@@ -1,13 +1,5 @@
 import { betterAuth } from "better-auth";
-import { surrealAdapter } from "../../shared-utils/auth/better-auth.adapter";
-
-// console.log({
-//   address: SERVER_CONFIG.db.host,
-//   username: SERVER_CONFIG.db.username as string,
-//   password: SERVER_CONFIG.db.password as string,
-//   ns: SERVER_CONFIG.db.namespace,
-//   db: SERVER_CONFIG.db.database,
-// })
+import { surrealAdapter } from "$lib/domain/+shared/auth/better-auth.adapter";
 
 export function getAuth() {
   const BETTER_AUTH_SECRET = process.env.BETTER_AUTH_SECRET;

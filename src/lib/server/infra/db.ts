@@ -1,8 +1,20 @@
 import { Surreal } from "surrealdb";
 import { DB_CONFIG } from "../conf/server.config.js";
-import { surrealdbNodeEngines } from "@surrealdb/node";
 import { INIT_DB_QUERY } from "./init-db.query.js";
 
+async function loadEngine() {
+  try {
+    // Dynamically import @surrealdb/node as it's an optional dependency
+    const { surrealdbNodeEngines } = await import("@surrealdb/node");
+    return surrealdbNodeEngines();
+  } catch (error) {
+    throw new Error(
+      "Failed to load SurrealDB Node.js engines. " +
+      "Please install @surrealdb/node: npm install --save @surrealdb/node. " +
+      `Original error: ${error instanceof Error ? error.message : String(error)}`
+    );
+  }
+}
 export interface SERVER_DB_CONF {
   host: string;
   namespace?: string;
@@ -54,7 +66,7 @@ export async function closeDashboardDb(): Promise<void> {
 export const createDbConnection = async (conf: SERVER_DB_CONF) => {
   const { host, namespace, database, username, password, token } = conf;
   const isEmbedded = host.startsWith("mem://") || host.startsWith("surrealkv://");
-  const db = new Surreal(isEmbedded ? { engines: surrealdbNodeEngines() } : undefined);
+  const db = new Surreal(isEmbedded ? { engines: await loadEngine() } : undefined);
   await db.connect(host, {
     namespace: namespace,
     database: database,
