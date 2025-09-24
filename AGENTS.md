@@ -7,6 +7,7 @@
   * each time you finish the task you have to update the progress in md file refrence ( if user specify some plan md) `- [x]`
   * frontend uses vitest and backend jest for testing
   * if no specification, use preview:test-non-block to test the UI
+  * use process.env.<VARIABLE>
 
 ### IMPORTANT:
 NEVER report to the user without checking the result in

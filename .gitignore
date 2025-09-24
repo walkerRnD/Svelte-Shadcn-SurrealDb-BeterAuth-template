@@ -1,5 +1,7 @@
 test-results
 node_modules
+.augment
+data.db
 
 # Output
 .output

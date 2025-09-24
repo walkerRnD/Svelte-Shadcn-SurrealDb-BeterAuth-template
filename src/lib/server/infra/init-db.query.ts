@@ -1,0 +1,5 @@
+export const INIT_DB_QUERY = /* surql */`
+-- AGENT IS NOT ALLOWED TO DEFINE SCHEMA
+-- ASK TO HUMAN
+-- THE SCHEMA MUST BE DEFINED as Zod SCHEMA on each DOMAIN
+`;
