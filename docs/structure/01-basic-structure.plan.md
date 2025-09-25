@@ -182,23 +182,23 @@ Current Better Auth setup (✓ exists):
 ```ts
 // src/lib/server/infra/auth.ts (✓ implemented)
 import { betterAuth } from "better-auth";
-import { surrealAdapter } from "../../shared-utils/auth/better-auth.adapter";
+import { surrealAdapter } from "$lib/domain/+shared/auth/better-auth.adapter";
 
 export function getAuth() {
   return betterAuth({
     secret: process.env.BETTER_AUTH_SECRET,
     baseURL: process.env.BETTER_AUTH_URL || "http://localhost:5173",
     emailAndPassword: { enabled: true },
-    database: surrealAdapter, // ✗ missing adapter
+    database: surrealAdapter, // ✓ configured
   });
 }
 ```
 
 Existing SurrealDB adapter (✓ implemented):
 ```ts
-// src/lib/shared-utils/auth/better-auth.adapter.ts (✓ exists)
-import type { Adapter, BetterAuthOptions } from "better-auth/types";
-import { getDb } from "../../server/infra/db";
+// src/lib/domain/+shared/auth/better-auth.adapter.ts (✓ exists)
+import type { Adapter, BetterAuthOptions } from "better-auth";
+import { getDb } from "$lib/server/infra/db";
 import { BetterAuthService } from "./better-auth.service";
 
 export const surrealAdapter = (options: BetterAuthOptions): Adapter => {

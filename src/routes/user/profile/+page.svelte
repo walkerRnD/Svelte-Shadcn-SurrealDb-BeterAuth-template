@@ -9,7 +9,7 @@
   import { useSession } from "$lib/domain/api/api-client";
   const session = useSession();
 
-  const isProd = process.env.NODE_ENV === "production";
+  const isProd = import.meta.env.MODE === "production";
   let statusMsg = $state("");
   let providers = $state<string[]>([]);
 

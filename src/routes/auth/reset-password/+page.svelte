@@ -4,7 +4,7 @@
   import { Input } from "$lib/components/ui/input";
   import { forgetPassword } from "$lib/domain/api/api-client";
   import { z } from "zod";
-  import { zod, zodClient } from "sveltekit-superforms/adapters";
+  import { zodClient } from "sveltekit-superforms/adapters";
   import { defaults, superForm } from "sveltekit-superforms/client";
 
   const schema = z.object({
@@ -12,9 +12,11 @@
     password: z.string().min(8).optional(),
     confirm: z.string().min(8).optional(),
   });
-  const adapter = zod(schema as any) as any;
-  const clientAdapter = zodClient(schema as any) as any;
-  const data = defaults(adapter);
+  const clientAdapter: any = zodClient(schema as any) as any;
+  const data: any = defaults(
+    { email: "", password: "", confirm: "" } as any,
+    clientAdapter,
+  );
 
   let infoMsg = $state("");
   let errorMsg = $state("");
@@ -86,6 +88,7 @@
           <Input
             {...props}
             type="password"
+            autocomplete="new-password"
             bind:value={$formData.password}
             required
           />
@@ -101,6 +104,7 @@
           <Input
             {...props}
             type="password"
+            autocomplete="new-password"
             bind:value={$formData.confirm}
             required
           />
@@ -130,6 +134,7 @@
           <Input
             {...props}
             type="email"
+            autocomplete="email"
             bind:value={$formData.email}
             required
           />

@@ -3,15 +3,15 @@
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
   import { signIn, signUp } from "$lib/domain/api/api-client";
-  import { zod4Client } from "sveltekit-superforms/adapters";
-  import { defaults, superForm } from "sveltekit-superforms";
+  import { zodClient } from "sveltekit-superforms/adapters";
+  import { defaults, superForm } from "sveltekit-superforms/client";
   import { loginSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zod4Client(loginSchema);
-  const data = defaults<Login>({ email: "", password: "" }, clientAdapter);
+  const clientAdapter: any = zodClient(loginSchema as any) as any;
+  const data: any = defaults({ email: "", password: "" } as any, clientAdapter);
 
   let isLoading = $state(false);
-  const form = superForm<Login>(data, {
+  const form = superForm(data, {
     dataType: "json",
     SPA: true,
     resetForm: false,
@@ -43,7 +43,9 @@
     }
   }
 
-  const isProd = process.env.NODE_ENV === "production";
+  const devLoginEnabled =
+    import.meta.env.MODE !== "production" ||
+    import.meta.env.VITE_DEV_LOGIN === "true";
   async function handleDevLogin() {
     isLoading = true;
     errorMsg = "";
@@ -112,7 +114,7 @@
 
   <Button type="submit" class="mt-3 w-full" disabled={isLoading}>Sign in</Button
   >
-  {#if !isProd}
+  {#if devLoginEnabled}
     <Button
       variant="secondary"
       class="mt-2 w-full"

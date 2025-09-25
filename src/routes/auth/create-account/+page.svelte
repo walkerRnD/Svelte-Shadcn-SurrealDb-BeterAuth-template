@@ -7,8 +7,11 @@
   import { defaults, superForm } from "sveltekit-superforms/client";
   import { createAccountSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(createAccountSchema);
-  const data = defaults({ name: "", email: "", password: "" }, clientAdapter);
+  const clientAdapter: any = zodClient(createAccountSchema as any) as any;
+  const data: any = defaults(
+    { name: "", email: "", password: "" } as any,
+    clientAdapter,
+  );
 
   let isLoading = $state(false);
   const form = superForm<any>(data, {
@@ -57,7 +60,12 @@
     <Form.Control>
       {#snippet children({ props })}
         <Form.Label>Name</Form.Label>
-        <Input {...props} bind:value={$formData.name} required />
+        <Input
+          {...props}
+          bind:value={$formData.name}
+          autocomplete="name"
+          required
+        />
       {/snippet}
     </Form.Control>
     <Form.FieldErrors />
@@ -71,6 +79,7 @@
           {...props}
           type="email"
           placeholder="example@test.com"
+          autocomplete="email"
           bind:value={$formData.email}
           required
         />
@@ -86,6 +95,7 @@
         <Input
           {...props}
           type="password"
+          autocomplete="new-password"
           bind:value={$formData.password}
           minlength={8}
           required

@@ -3,7 +3,9 @@
   import { signOut, useSession } from "$lib/domain/api/api-client";
 
   const session = useSession();
-  const isProd = process.env.NODE_ENV === "production";
+  const devLoginEnabled =
+    import.meta.env.MODE !== "production" ||
+    import.meta.env.VITE_DEV_LOGIN === "true";
 
   async function handleLogout() {
     try {
@@ -26,8 +28,8 @@
       <Button onclick={handleLogout}>Logout</Button>
     {:else}
       <a href="/auth/login"><Button variant="secondary">Login</Button></a>
-      {#if !isProd}
-        <a href="/auth/login"><Button>Dev Login (local/dev)</Button></a>
+      {#if devLoginEnabled}
+        <a href="/auth/login"><Button>Dev Login</Button></a>
       {/if}
     {/if}
   </div>

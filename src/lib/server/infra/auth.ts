@@ -1,15 +1,14 @@
 import { betterAuth } from "better-auth";
 import { surrealAdapter } from "$lib/domain/+shared/auth/better-auth.adapter";
 
-export function getAuth() {
+function buildAuth(baseURL: string) {
   const BETTER_AUTH_SECRET = process.env.BETTER_AUTH_SECRET;
-  const BETTER_AUTH_URL = process.env.BETTER_AUTH_URL || "http://localhost:5173";
   if (!BETTER_AUTH_SECRET) {
     throw new Error("BETTER_AUTH_SECRET environment variable is required");
   }
   const auth = betterAuth({
     secret: BETTER_AUTH_SECRET,
-    baseURL: BETTER_AUTH_URL,
+    baseURL,
 
     emailAndPassword: {
       enabled: true,
@@ -42,4 +41,14 @@ export function getAuth() {
   });
 
   return auth;
+}
+
+export function getAuth() {
+  const fallback = process.env.BETTER_AUTH_URL || "http://localhost:5173";
+  return buildAuth(fallback);
+}
+
+export function getAuthForRequest(request: Request) {
+  const origin = new URL(request.url).origin;
+  return buildAuth(origin);
 }

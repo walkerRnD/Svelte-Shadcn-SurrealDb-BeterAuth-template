@@ -7,9 +7,9 @@
   import { defaults, superForm } from "sveltekit-superforms/client";
   import { changePasswordSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(changePasswordSchema);
-  const data = defaults(
-    { currentPassword: "", newPassword: "" },
+  const clientAdapter: any = zodClient(changePasswordSchema as any) as any;
+  const data: any = defaults(
+    { currentPassword: "", newPassword: "" } as any,
     clientAdapter,
   );
 
@@ -55,6 +55,7 @@
         <Input
           {...props}
           type="password"
+          autocomplete="current-password"
           bind:value={$formData.currentPassword}
           required
         />
@@ -69,6 +70,7 @@
         <Input
           {...props}
           type="password"
+          autocomplete="new-password"
           bind:value={$formData.newPassword}
           minlength={8}
           required

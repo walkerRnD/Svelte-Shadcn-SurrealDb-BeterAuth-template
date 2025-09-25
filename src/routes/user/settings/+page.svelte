@@ -1,12 +1,17 @@
 <script lang="ts">
-  import { Card, CardContent, CardHeader, CardTitle } from '$lib/components/ui/card';
-  import { Input } from '$lib/components/ui/input';
-  import { Button } from '$lib/components/ui/button';
-  let displayName = '';
+  import {
+    Card,
+    CardContent,
+    CardHeader,
+    CardTitle,
+  } from "$lib/components/ui/card";
+  import { Input } from "$lib/components/ui/input";
+  import { Button } from "$lib/components/ui/button";
+  let displayName = "";
   function handleSave(event: SubmitEvent) {
     event.preventDefault();
     // TODO: save settings via API
-    alert('Settings saved (demo)');
+    alert("Settings saved (demo)");
   }
 </script>
 
@@ -17,10 +22,9 @@
     <form onsubmit={handleSave} class="grid gap-3">
       <label class="grid gap-1">
         <span class="text-sm">Display name</span>
-        <Input bind:value={displayName} />
+        <Input bind:value={displayName} autocomplete="name" />
       </label>
       <Button type="submit">Save</Button>
     </form>
   </CardContent>
 </Card>
-
