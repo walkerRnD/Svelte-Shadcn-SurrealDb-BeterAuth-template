@@ -149,7 +149,7 @@ Notes
 - [x] Dev Login visible when NODE_ENV in {development,test,local}
 
 **Phase 3: Integration**
-- [x] Auth flow working (login → protected route → logout)
+- [ ] Auth flow working (login → protected route → logout) — blocked during review by 401 from /api/auth in preview; set BETTER_AUTH_SECRET and retry
 - [x] Services follow DI pattern with owner scoping
 - [x] Vitest/Jest/Playwright scripts present and runnable
 - [x] TEST uses DB_HOST=mem://test.db; DEV uses DB_HOST=surrealkv://data.db
@@ -159,8 +159,8 @@ Notes
 - [x] API session smoke test present (guarded behind E2E)
 - [x] Playwright e2e specs scaffolded (guarded behind E2E)
 - [x] Playwright MCP validation performed at http://localhost:5173/
-- [x] All routes accessible and functional
-- [x] Auth state properly managed across navigation
+- [ ] All routes accessible and functional — UI loads; auth‑dependent flows blocked until secret is set
+- [ ] Auth state properly managed across navigation — pending successful local auth session
 
 ## Implementation order (recommended)
 1. **First**: Install and configure shadcn/ui components
@@ -239,11 +239,15 @@ Svelte 5 snippet usage in shared UI:
 - Playwright port + scripts aligned to 5173 (preview:test)
 - Auth helpers created (src/lib/server/auth-helpers.ts)
 
-❌ **Still needed:**
-- Dependencies installation (zod; any jest transformers for TS)
-- Auth middleware integration in hooks.server.ts
-- Domain structure and UI components
-- shadcn/ui setup
+❌ **Still needed (to enable full end‑to‑end auth locally):**
+- Set BETTER_AUTH_SECRET when running preview/dev so Better Auth can sign/verify sessions.
+  Example (PowerShell): `$env:BETTER_AUTH_SECRET='dev-secret'; npm run preview:test-non-block`
+- Optional: configure OAuth provider env vars if you plan to exercise provider linking end‑to‑end.
+
+✅ Already satisfied:
+- Dependencies installed (zod present; ts-jest configured in jest.config.mjs)
+- Auth middleware integrated in src/hooks.server.ts (paraglide + better‑auth)
+- Domain structure and UI components scaffolded; shadcn/ui installed and in use
 
 
 ## References

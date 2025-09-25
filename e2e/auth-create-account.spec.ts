@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const E2E = process.env.E2E === 'true';
+// E2E flag removed; always run in CI
 
-(E2E ? test : test.skip)('create account → profile → logout', async ({ page }) => {
+test('create account → profile → logout', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
   const unique = Date.now();
   const email = `e2e+${unique}@example.com`;

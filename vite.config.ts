@@ -26,9 +26,9 @@ export default defineConfig({
 	// 		"zod$": resolve(__dirname, 'src/zod-compat.ts')
 	// 	}
 	// },
-	// ssr: {
-	// 	noExternal: ['better-auth', 'zod']
-	// },
+	ssr: {
+		external: ['@surrealdb/node', '@surrealdb/node-*']
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const E2E = process.env.E2E === 'true';
+// E2E flag removed; always run in CI
 
-(E2E ? test : test.skip)('provider linking (dev) on profile', async ({ page }) => {
+test('provider linking (dev) on profile', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
 
   // Login via Dev Login
@@ -19,11 +19,8 @@ const E2E = process.env.E2E === 'true';
   }
 
   await page.goto(base + '/user/profile');
-  await expect(page.getByRole('heading', { level: 1, name: 'Profile' })).toBeVisible();
-
-  // If not signed in (race condition), try again quickly
-  if (await page.getByText('Not signed in.').isVisible().catch(() => false)) {
-    await page.goto(base + '/auth/login');
+  // If guard redirected us to login, sign in (dev) and go back to profile
+  if (new URL(page.url()).pathname.startsWith('/auth/login')) {
     const devBtn2 = page.getByRole('button', { name: 'Dev Login' });
     if (await devBtn2.isVisible().catch(() => false)) {
       await Promise.race([
@@ -33,8 +30,9 @@ const E2E = process.env.E2E === 'true';
     }
     await page.goto(base + '/user/profile');
   }
+  await expect(page.getByRole('heading', { level: 1, name: 'Profile' })).toBeVisible();
 
-  // If buttons are available (user signed in), exercise linking; otherwise accept 'Not signed in.'
+  // If buttons are available (user signed in), exercise linking; otherwise accept redirect to login
   const linkBtn = page.getByRole('button', { name: 'Link GitHub (dev)' });
   if (await linkBtn.isVisible().catch(() => false)) {
     // Capture initial count
@@ -74,7 +72,8 @@ const E2E = process.env.E2E === 'true';
       expect(afterGoogleUnlink).toBeLessThanOrEqual(afterGoogleLink - 1);
     }
   } else {
-    await expect(page.getByText('Not signed in.')).toBeVisible();
+    // Strict guard redirects when not signed in; expect to see login page
+    await expect(page.getByRole('heading', { level: 1, name: 'Login' })).toBeVisible();
   }
 });
 

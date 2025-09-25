@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
-  import { signIn, signUp } from "$lib/domain/api/api-client";
+  import { signIn } from "$lib/domain/api/api-client";
 
   let email = $state("");
   let password = $state("");
@@ -30,22 +30,20 @@
   async function handleDevLogin() {
     isLoading = true;
     errorMsg = "";
-    const email = "dev+e2e@example.com";
-    const password = "password1234";
     try {
-      // try sign in; if fails, sign up then sign in
-      await signIn.email({ email, password });
-    } catch (_) {
-      try {
-        await signUp.email({ email, password, name: "Dev User" });
-        await signIn.email({ email, password });
-      } catch (e: any) {
-        errorMsg = e?.message || "Dev Login failed";
-      }
+      // Use server-side dev-login to ensure cookies are set in the browser (E2E friendly)
+      const res = await fetch("/api/dev-login", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+      });
+      if (!res.ok) throw new Error(await res.text());
+      // Navigate to profile after successful session
+      if (typeof window !== "undefined") window.location.href = "/user/profile";
+    } catch (e: any) {
+      errorMsg = e?.message || "Dev Login failed";
     } finally {
       isLoading = false;
     }
-    if (!errorMsg) history.back();
   }
 </script>
 

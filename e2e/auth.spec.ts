@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const E2E = process.env.E2E === 'true';
+// E2E flag removed; always run in CI
 
-(E2E ? test : test.skip)('login → profile → logout', async ({ page }) => {
+test('login → profile → logout', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
 
   // Go to home
@@ -40,7 +40,7 @@ const E2E = process.env.E2E === 'true';
   }
 });
 
-(E2E ? test : test.skip)('navigation smoke', async ({ page }) => {
+test('navigation smoke', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
   await page.goto(base + '/');
   await expect(page.getByText('Welcome').first()).toBeVisible();

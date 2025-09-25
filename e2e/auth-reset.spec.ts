@@ -1,8 +1,8 @@
 import { test, expect } from '@playwright/test';
 
-const E2E = process.env.E2E === 'true';
+// E2E flag removed; always run in CI
 
-(E2E ? test : test.skip)('reset password request shows confirmation', async ({ page }) => {
+test('reset password request shows confirmation', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
   await page.goto(base + '/auth/reset-password');
   await expect(page.getByRole('heading', { level: 1, name: 'Reset password' })).toBeVisible();

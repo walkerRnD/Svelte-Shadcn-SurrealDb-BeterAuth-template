@@ -50,12 +50,7 @@
 </script>
 
 <h1 class="text-xl font-semibold mb-4">Create account</h1>
-<form
-  method="POST"
-  use:enhance
-  onsubmit={handleSubmit}
-  class="grid gap-3 max-w-sm"
->
+<form use:enhance onsubmit={handleSubmit} class="grid gap-3 max-w-sm">
   <Form.Field {form} name="name">
     <Form.Control>
       {#snippet children({ props })}

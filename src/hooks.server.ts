@@ -1,3 +1,5 @@
+// Ensure environment variables from .env and .env.<NODE_ENV> are loaded early (e.g., .env.test in E2E)
+import '$lib/server/conf/server.config';
 import type { Handle } from '@sveltejs/kit';
 import { sequence } from '@sveltejs/kit/hooks';
 import { paraglideMiddleware } from '$lib/paraglide/server';

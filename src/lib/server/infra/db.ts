@@ -5,7 +5,13 @@ import { INIT_DB_QUERY } from "./init-db.query.js";
 async function loadEngine() {
   try {
     // Dynamically import @surrealdb/node as it's an optional dependency
-    const { surrealdbNodeEngines } = await import("@surrealdb/node");
+    // Use a dynamic module name to avoid bundlers from eagerly including native binaries
+    const moduleName = '@surrealdb/node';
+    const mod: any = await import(/* @vite-ignore */ moduleName);
+    const { surrealdbNodeEngines } = mod || {};
+    if (typeof surrealdbNodeEngines !== 'function') {
+      throw new Error('surrealdbNodeEngines not available from @surrealdb/node');
+    }
     return surrealdbNodeEngines();
   } catch (error) {
     throw new Error(

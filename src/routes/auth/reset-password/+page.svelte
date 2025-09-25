@@ -75,12 +75,7 @@
 
 <h1 class="text-xl font-semibold mb-4">Reset password</h1>
 {#if token}
-  <form
-    method="POST"
-    use:enhance
-    onsubmit={handleReset}
-    class="grid gap-3 max-w-sm"
-  >
+  <form use:enhance onsubmit={handleReset} class="grid gap-3 max-w-sm">
     <Form.Field {form} name="password">
       <Form.Control>
         {#snippet children({ props })}
@@ -121,12 +116,7 @@
     </div>
   </form>
 {:else}
-  <form
-    method="POST"
-    use:enhance
-    onsubmit={handleSubmit}
-    class="grid gap-3 max-w-sm"
-  >
+  <form use:enhance onsubmit={handleSubmit} class="grid gap-3 max-w-sm">
     <Form.Field {form} name="email">
       <Form.Control>
         {#snippet children({ props })}

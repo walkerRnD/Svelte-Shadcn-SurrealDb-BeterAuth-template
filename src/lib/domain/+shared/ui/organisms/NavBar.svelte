@@ -1,6 +1,6 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button";
-  import { signOut, useSession } from "$lib/domain/api/api-client";
+  import { useSession } from "$lib/domain/api/api-client";
 
   const session = useSession();
   const devLoginEnabled =
@@ -9,7 +9,12 @@
 
   async function handleLogout() {
     try {
-      await signOut();
+      // Use server-side logout to ensure cookies are cleared and redirect happens
+      const res = await fetch("/auth/logout", { method: "POST" });
+      // Follow redirect client-side in case the platform doesn't auto-follow on POST-303
+      if (typeof window !== "undefined") {
+        window.location.href = "/";
+      }
     } catch (e) {
       console.error(e);
     }
