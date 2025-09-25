@@ -27,20 +27,20 @@ Follow domain-driven structure (aligning with vault pattern):
 
 ## Prerequisites (status update)
 Core infrastructure
-- ✗ jest.config.mjs — Jest configuration for server tests (still missing)
+- ✓ jest.config.mjs — Jest configuration for server tests (created)
 - ✓ src/lib/server/infra/db.ts — SurrealDB connection helper (✓ createDbConnection, ✓ getDb)
 - ✓ src/lib/server/conf/server.config.ts — Environment configuration (✓ DB_CONFIG)
 - ✓ src/lib/server/infra/auth.ts — Better Auth configuration (✓ getAuth function)
 - ✓ src/lib/domain/+shared/auth/better-auth.adapter.ts — SurrealDB adapter (✓ exists!)
 - ✓ src/lib/domain/+shared/auth/better-auth.service.ts — SurrealDB service (✓ exists!)
-- ✗ src/hooks.server.ts — Update to include auth middleware (only has paraglide)
-- ✗ src/app.d.ts — Add auth types to App.Locals (needs auth session types)
-- ✗ getAuthUser helper function — Extract user from locals (missing)
+- ✓ src/hooks.server.ts — Auth middleware + paraglide
+- ✓ src/app.d.ts — Auth types in App.Locals
+- ✓ getAuthUser helper function — Extract user from locals
 
-**shadcn/ui setup (missing)**
-- ✗ components.json — shadcn/ui configuration file
-- ✗ shadcn-svelte components — Install and configure shadcn-svelte
-- ✗ src/lib/components/ui/ — shadcn component directory structure
+**shadcn/ui setup (done)**
+- ✓ components.json — shadcn/ui configuration file
+- ✓ shadcn-svelte components — Installed and configured
+- ✓ src/lib/components/ui/ — base components added (button, card, input, form, dialog)
 
 ## Files to create/update (remaining work)
 **Critical missing pieces:**
@@ -118,8 +118,8 @@ Notes
 ## Dependencies to install
 - better-auth (authentication) — ✓ already installed
 - surrealdb.js (database client) — ✓ already installed
-- zod (schema validation) — ✗ needs installation
-- shadcn-svelte (UI components) — ✗ needs installation and setup
+- zod (schema validation) — ✓ installed
+- shadcn-svelte (UI components) — ✓ installed and initialized (components added)
 
 ## Validation (must do)
 - Start preview in test mode, then run Playwright
@@ -134,16 +134,16 @@ Notes
 - [x] Better Auth configuration — ✓ src/lib/server/infra/auth.ts (getAuth function)
 - [x] SurrealDB adapter for Better Auth — ✓ src/lib/domain/+shared/auth/better-auth.adapter.ts
 - [x] SurrealDB service for Better Auth — ✓ src/lib/domain/+shared/auth/better-auth.service.ts
-- [ ] Dependencies installed (better-auth, surrealdb.js, zod)
+- [x] Dependencies installed (better-auth, surrealdb.js, zod)
 - [x] jest.config.mjs created (needs ts-jest/babel-jest to run TS)
 - [x] getAuthUser helper function — src/lib/server/auth-helpers.ts
-- [ ] Auth middleware in hooks.server.ts (currently only paraglide)
+- [x] Auth middleware in hooks.server.ts (paraglide + better-auth)
 - [x] Scripts fixed (playwright port 5173, preview:test variants)
-- [ ] shadcn/ui setup and configuration
+- [x] shadcn/ui setup and configuration
 
 **Phase 2: Structure & UI (using shadcn components)**
 - [ ] Domain folder structure created
-- [ ] shadcn components installed (Button, Card, Input, Form, etc.)
+- [x] shadcn components installed (Button, Card, Input, Form, Dialog)
 - [ ] App shell and NavBar scaffolded with shadcn styling
 - [ ] All listed routes created with shadcn components
 - [ ] Dev Login visible when NODE_ENV in {development,test,local}
