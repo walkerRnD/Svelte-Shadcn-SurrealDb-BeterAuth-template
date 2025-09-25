@@ -4,18 +4,15 @@ import { getDb } from '$lib/server/infra/db';
 import { AuthService } from '$lib/domain/auth/services/AuthService';
 import { StringRecordId } from 'surrealdb';
 
-export const POST: RequestHandler = async ({ request, locals }) => {
+export const GET: RequestHandler = async ({ locals }) => {
   try {
-    const body = await request.json().catch(() => ({}));
-    const provider = String(body?.provider || '');
-    // Guard: derive user from session
     const { getAuthUser } = await import('$lib/server/auth-helpers');
     const user = getAuthUser(locals);
     const service = new AuthService(getDb);
-    const result = await service.linkProvider(new StringRecordId(user.id), provider);
-    return json({ ok: true, providers: result.providers });
+    const providers = await service.getProviders(new StringRecordId(user.id));
+    return json({ ok: true, providers });
   } catch (e: any) {
-    return json({ error: e?.message || 'Failed' }, { status: 400 });
+    return json({ error: e?.message || 'Failed' }, { status: 401 });
   }
 };
 

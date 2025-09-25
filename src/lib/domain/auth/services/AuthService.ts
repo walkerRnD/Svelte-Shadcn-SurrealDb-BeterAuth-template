@@ -79,4 +79,19 @@ export class AuthService {
     );
     return { ok: true, providers };
   }
+
+  async getProviders(userId: StringRecordId): Promise<string[]> {
+    const db = await this.getDb();
+    const rid = String(userId);
+    const sep = rid.indexOf(':');
+    const table = sep > 0 ? rid.slice(0, sep) : 'user';
+    const key = sep > 0 ? rid.slice(sep + 1) : rid;
+    const [rows] = await db.query<any[]>(
+      /* surql */ `SELECT providers FROM type::thing($table, $key) LIMIT 1`,
+      { table, key }
+    );
+    const first = Array.isArray(rows) && rows.length ? rows[0] : undefined;
+    const existing: string[] = Array.isArray(first?.providers) ? (first.providers as string[]) : [];
+    return existing;
+  }
 }

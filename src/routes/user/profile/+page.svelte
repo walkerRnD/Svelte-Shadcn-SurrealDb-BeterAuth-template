@@ -11,18 +11,31 @@
 
   const isProd = process.env.NODE_ENV === "production";
   let statusMsg = $state("");
+  let providers = $state<string[]>([]);
+
+  // Load providers when profile mounts
+  if (typeof window !== "undefined") {
+    fetch("/api/auth/provider/list")
+      .then(async (r) => {
+        if (r.ok) {
+          const data = await r.json().catch(() => ({}));
+          providers = Array.isArray(data?.providers) ? data.providers : [];
+        }
+      })
+      .catch(() => {});
+  }
+
   async function linkGithub() {
     statusMsg = "";
     try {
       const res = await fetch("/api/auth/provider/link", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          userId: $session.data?.user?.id,
-          provider: "github",
-        }),
+        body: JSON.stringify({ provider: "github" }),
       });
       if (!res.ok) throw new Error(await res.text());
+      const data = await res.json().catch(() => ({}));
+      providers = Array.isArray(data?.providers) ? data.providers : providers;
       statusMsg = "Linked!";
     } catch (e: any) {
       statusMsg = e?.message || "Failed to link";
@@ -34,12 +47,11 @@
       const res = await fetch("/api/auth/provider/unlink", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({
-          userId: $session.data?.user?.id,
-          provider: "github",
-        }),
+        body: JSON.stringify({ provider: "github" }),
       });
       if (!res.ok) throw new Error(await res.text());
+      const data = await res.json().catch(() => ({}));
+      providers = Array.isArray(data?.providers) ? data.providers : providers;
       statusMsg = "Unlinked!";
     } catch (e: any) {
       statusMsg = e?.message || "Failed to unlink";
@@ -58,6 +70,21 @@
         <div><b>ID:</b> {$session.data.user.id}</div>
         <div><b>Name:</b> {$session.data.user.name}</div>
         <div><b>Email:</b> {$session.data.user.email}</div>
+        <div>
+          <b>Providers:</b>
+          {providers.length ? providers.join(", ") : "None"}
+        </div>
+        {#if providers.length}
+          <div class="mt-2 flex flex-wrap gap-2">
+            {#each providers as p}
+              <span
+                class="inline-flex items-center rounded-full bg-gray-200 dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-2 py-0.5 text-xs"
+              >
+                {p}
+              </span>
+            {/each}
+          </div>
+        {/if}
       </div>
       {#if !isProd}
         <div class="mt-3 flex gap-2">
