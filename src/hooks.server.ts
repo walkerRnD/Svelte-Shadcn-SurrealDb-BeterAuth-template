@@ -5,11 +5,11 @@ import { sequence } from '@sveltejs/kit/hooks';
 import { paraglideMiddleware } from '$lib/paraglide/server';
 import { svelteKitHandler } from 'better-auth/svelte-kit';
 import { building } from '$app/environment';
-import { getAuth } from '$lib/server/infra/auth';
+import { getAuthForRequest } from '$lib/server/infra/auth';
 
 // Auth handler: reads session from Better Auth and exposes to locals
 const authHandler: Handle = async ({ event, resolve }) => {
-	const auth = getAuth();
+	const auth = getAuthForRequest(event.request);
 
 	// Fetch current session (user + session) using request headers
 	const session = await auth.api.getSession({ headers: event.request.headers });

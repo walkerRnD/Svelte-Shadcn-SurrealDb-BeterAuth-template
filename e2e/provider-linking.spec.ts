@@ -18,18 +18,21 @@ test('provider linking (dev) on profile', async ({ page }) => {
     ]);
   }
 
+  // Wait for session to be established, then go to profile
+  await expect.poll(async () => {
+    const status = await page.evaluate(async () => {
+      try {
+        const r = await fetch('/api/auth/session', { credentials: 'include' });
+        if (!r.ok) return 'no';
+        const data = await r.json();
+        return data?.user?.id ? 'ok' : 'no';
+      } catch {
+        return 'no';
+      }
+    });
+    return status;
+  }, { timeout: 15000 }).toBe('ok');
   await page.goto(base + '/user/profile');
-  // If guard redirected us to login, sign in (dev) and go back to profile
-  if (new URL(page.url()).pathname.startsWith('/auth/login')) {
-    const devBtn2 = page.getByRole('button', { name: 'Dev Login' });
-    if (await devBtn2.isVisible().catch(() => false)) {
-      await Promise.race([
-        devBtn2.click(),
-        page.waitForLoadState('networkidle'),
-      ]);
-    }
-    await page.goto(base + '/user/profile');
-  }
   await expect(page.getByRole('heading', { level: 1, name: 'Profile' })).toBeVisible();
 
   // If buttons are available (user signed in), exercise linking; otherwise accept redirect to login

@@ -35,8 +35,11 @@
       const res = await fetch("/api/dev-login", {
         method: "POST",
         headers: { "content-type": "application/json" },
+        credentials: "include",
       });
       if (!res.ok) throw new Error(await res.text());
+      // Small delay to ensure cookies are committed before navigating
+      await new Promise((r) => setTimeout(r, 50));
       // Navigate to profile after successful session
       if (typeof window !== "undefined") window.location.href = "/user/profile";
     } catch (e: any) {

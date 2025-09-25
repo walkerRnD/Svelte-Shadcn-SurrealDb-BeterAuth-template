@@ -16,7 +16,20 @@ test('create account → profile → logout', async ({ page }) => {
   await page.getByLabel('Password').fill(password);
   await page.getByRole('button', { name: 'Create account' }).click();
 
-  await page.waitForLoadState('networkidle');
+  // Wait until API session reports a user, then go to profile.
+  await expect.poll(async () => {
+    const status = await page.evaluate(async () => {
+      try {
+        const r = await fetch('/api/auth/session', { credentials: 'include' });
+        if (!r.ok) return 'no';
+        const data = await r.json();
+        return data?.user?.id ? 'ok' : 'no';
+      } catch {
+        return 'no';
+      }
+    });
+    return status;
+  }, { timeout: 15000 }).toBe('ok');
   await page.goto(base + '/user/profile');
   await expect(page.getByRole('heading', { level: 1, name: 'Profile' })).toBeVisible();
 

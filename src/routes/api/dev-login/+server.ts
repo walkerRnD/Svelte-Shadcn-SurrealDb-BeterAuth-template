@@ -40,18 +40,8 @@ export const POST: RequestHandler = async ({ request, fetch }) => {
       return json({ error: text }, { status: 401 });
     }
 
-    // Forward Set-Cookie so the browser stores the session (support multiple cookies)
-    const headersOut = new Headers({ 'content-type': 'application/json' });
-    const getSetCookie = (res.headers as any).getSetCookie?.bind(res.headers);
-    if (typeof getSetCookie === 'function') {
-      const cookies: string[] = getSetCookie();
-      for (const c of cookies) headersOut.append('set-cookie', c);
-    } else {
-      const c = res.headers.get('set-cookie');
-      if (c) headersOut.set('set-cookie', c);
-    }
-
-    return new Response(JSON.stringify({ ok: true }), { status: 200, headers: headersOut });
+    // Return the upstream response directly so multiple Set-Cookie headers are preserved
+    return new Response(res.body, { status: res.status, headers: res.headers });
   } catch (e: any) {
     return json({ error: e?.message || 'Dev login failed' }, { status: 400 });
   }

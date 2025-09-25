@@ -6,9 +6,16 @@ function buildAuth(baseURL: string) {
   if (!BETTER_AUTH_SECRET) {
     throw new Error("BETTER_AUTH_SECRET environment variable is required");
   }
+  const trustedOrigins = Array.from(new Set([
+    baseURL,
+    process.env.BETTER_AUTH_URL,
+    `${baseURL}/api/auth`,
+  ].filter((x): x is string => typeof x === 'string' && x.length > 0)));
+
   const auth = betterAuth({
     secret: BETTER_AUTH_SECRET,
     baseURL,
+    trustedOrigins,
 
     emailAndPassword: {
       enabled: true,
