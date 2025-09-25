@@ -9,6 +9,7 @@
   import { Button } from "$lib/components/ui/button";
 </script>
 
+<h1 class="sr-only">Welcome</h1>
 <Card class="max-w-lg">
   <CardHeader>
     <CardTitle>Welcome</CardTitle>

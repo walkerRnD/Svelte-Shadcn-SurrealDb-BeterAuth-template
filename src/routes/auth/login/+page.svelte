@@ -3,14 +3,11 @@
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
   import { signIn } from "$lib/domain/api/api-client";
-  import { zodClient } from "sveltekit-superforms/adapters";
-  import type { Infer } from "sveltekit-superforms";
-  import { defaults, superForm } from "sveltekit-superforms/client";
-
+  import { zod4Client } from "sveltekit-superforms/adapters";
+  import { defaults, superForm } from "sveltekit-superforms";
   import { loginSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(loginSchema);
-  type Login = Infer<typeof loginSchema>;
+  const clientAdapter = zod4Client(loginSchema);
   const data = defaults<Login>({ email: "", password: "" }, clientAdapter);
 
   let isLoading = $state(false);

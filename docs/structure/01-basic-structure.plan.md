@@ -142,17 +142,17 @@ Notes
 - [x] shadcn/ui setup and configuration
 
 **Phase 2: Structure & UI (using shadcn components)**
-- [ ] Domain folder structure created
+- [x] Domain folder structure created
 - [x] shadcn components installed (Button, Card, Input, Form, Dialog)
 - [x] App shell and NavBar scaffolded with shadcn styling
 - [x] All listed routes created with shadcn components (auth + user pages scaffolded)
 - [x] Dev Login visible when NODE_ENV in {development,test,local}
 
 **Phase 3: Integration**
-- [ ] Auth flow working (login → protected route → logout)
-- [ ] Services follow DI pattern with owner scoping
-- [ ] Vitest/Jest/Playwright scripts present and runnable
-- [ ] TEST uses DB_HOST=mem://test.db; DEV uses DB_HOST=surrealkv://data.db
+- [x] Auth flow working (login → protected route → logout)
+- [x] Services follow DI pattern with owner scoping
+- [x] Vitest/Jest/Playwright scripts present and runnable
+- [x] TEST uses DB_HOST=mem://test.db; DEV uses DB_HOST=surrealkv://data.db
 
 **Phase 4: Validation**
 - [ ] Playwright MCP validation performed at http://localhost:5173/

@@ -3,6 +3,11 @@ import devtoolsJson from 'vite-plugin-devtools-json';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vitest/config';
 import { sveltekit } from '@sveltejs/kit/vite';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 export default defineConfig({
 	plugins: [
@@ -14,6 +19,16 @@ export default defineConfig({
 			outdir: './src/lib/paraglide'
 		})
 	],
+	// resolve: {
+	// 	alias: {
+	// 		// Shim zod to provide z.email() expected by some libraries (exact import only)
+	// 		// Do not affect 'zod/*' subpath imports used by other libs.
+	// 		"zod$": resolve(__dirname, 'src/zod-compat.ts')
+	// 	}
+	// },
+	// ssr: {
+	// 	noExternal: ['better-auth', 'zod']
+	// },
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

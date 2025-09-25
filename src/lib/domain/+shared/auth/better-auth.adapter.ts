@@ -1,4 +1,4 @@
-import type { Adapter, BetterAuthOptions } from "better-auth/types";
+import type { Adapter, BetterAuthOptions } from "better-auth";
 import { getDb } from "$lib/server/infra/db";
 import { BetterAuthService } from "./better-auth.service";
 

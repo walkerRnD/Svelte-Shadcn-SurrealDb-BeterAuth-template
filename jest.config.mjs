@@ -3,11 +3,17 @@ const config = {
   testEnvironment: 'node',
   extensionsToTreatAsEsm: ['.ts', '.tsx'],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'mjs', 'cjs', 'json'],
-  transform: {},
+  transform: {
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      { useESM: true, tsconfig: 'tsconfig.json' }
+    ],
+  },
+  moduleNameMapper: {
+    '^\\$lib/(.*)$': '<rootDir>/src/lib/$1',
+  },
   roots: ['<rootDir>/src'],
   testMatch: ['**/?(*.)+(spec|test).[tj]s'],
-  // Note: running TS tests will require installing ts-jest or babel-jest.
 };
 
 export default config;
-
