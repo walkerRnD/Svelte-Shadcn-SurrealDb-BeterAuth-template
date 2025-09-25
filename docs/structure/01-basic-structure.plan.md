@@ -63,7 +63,7 @@ Core infrastructure
 - src/routes/auth/login/+page.svelte — login form with shadcn Input/Button
 - src/routes/auth/create-account/+page.svelte — registration with shadcn components
 - src/routes/auth/reset-password/+page.svelte — password reset with shadcn Form
-- src/routes/auth/logout/+server.ts — POST to clear session
+- src/routes/auth/logout/+server.ts — POST to clear session (✓ created)
 
 **User pages (auth-protected, using shadcn components)**
 - src/routes/user/profile/+page.svelte — profile with shadcn Card/Avatar
@@ -144,9 +144,9 @@ Notes
 **Phase 2: Structure & UI (using shadcn components)**
 - [ ] Domain folder structure created
 - [x] shadcn components installed (Button, Card, Input, Form, Dialog)
-- [ ] App shell and NavBar scaffolded with shadcn styling
-- [ ] All listed routes created with shadcn components
-- [ ] Dev Login visible when NODE_ENV in {development,test,local}
+- [x] App shell and NavBar scaffolded with shadcn styling
+- [x] All listed routes created with shadcn components (auth + user pages scaffolded)
+- [x] Dev Login visible when NODE_ENV in {development,test,local}
 
 **Phase 3: Integration**
 - [ ] Auth flow working (login → protected route → logout)

@@ -1,7 +1,11 @@
 
 import { error } from '@sveltejs/kit';
 
-import { isDateString } from "$lib/shared-utils/date/date-utils";
+// Lightweight date string check (ISO or parsable)
+function isDateString(value: unknown): value is string {
+  if (typeof value !== 'string') return false;
+  return /^\d{4}-\d{2}-\d{2}T/.test(value) || !Number.isNaN(Date.parse(value));
+}
 import type { FieldAttribute } from "better-auth/db";
 import { StringRecordId } from "surrealdb";
 import { generateId } from "better-auth";

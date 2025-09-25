@@ -301,6 +301,68 @@ export async function POST({ request }) {
 </main>
 ```
 
+## Form
+```svelte
+<script lang="ts">
+  import * as Form from "$lib/components/ui/form";
+	import { zod } from "sveltekit-superforms/adapters";
+	import { defaults, superForm } from "sveltekit-superforms/client";
+	import { zodClient } from "sveltekit-superforms/adapters";
+  // .. other imports
+	const data = defaults(zod(LoginFormSchema));
+
+	let isLoading = $state(false);
+	const form = superForm(data, {
+		dataType: "json",
+		SPA: true,
+		resetForm: true,
+		validators: zodClient(LoginFormSchema),
+		onSubmit: () => {
+			isLoading = true;
+		},
+		onUpdate: async ({ form }) => {
+			const { data } = form;
+			const { email, password } = data;
+      // handle Success
+			isLoading = false;
+		},
+	});
+	const { form: formData, enhance } = form;
+</script>
+
+<form method="POST" use:enhance>
+  <Form.Field {form} name="email">
+    <Form.Control>
+      {#snippet children({ props })}
+        <Form.Label>email</Form.Label>
+        <Input
+          {...props}
+          type="email"
+          placeholder="example@test.com"
+          bind:value={$formData.email}
+          required
+        />
+      {/snippet}
+    </Form.Control>
+    <Form.FieldErrors />
+  </Form.Field>
+
+  <Form.Field {form} name="password">
+    <Form.Control>
+      {#snippet children({ props })}
+        <Form.Label>password</Form.Label>
+        <Input {...props} type="password" bind:value={$formData.password} />
+      {/snippet}
+    </Form.Control>
+    <Form.FieldErrors />
+  </Form.Field>
+
+  <Button type="submit" class="mt-3 w-full" disabled={isLoading}
+    >login</Button
+  >
+</form>
+```
+
 ### Agent
 ```typescript
 export class PlannerAgent {
