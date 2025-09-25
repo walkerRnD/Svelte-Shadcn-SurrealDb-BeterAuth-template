@@ -5,9 +5,9 @@
   import { changePassword } from "$lib/domain/api/api-client";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { defaults, superForm } from "sveltekit-superforms/client";
-  import { changePasswordSchema as ChangePasswordSchema } from "$lib/domain/+shared/schema/auth";
+  import { changePasswordSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(ChangePasswordSchema as any);
+  const clientAdapter = zodClient(changePasswordSchema);
   const data = defaults(
     { currentPassword: "", newPassword: "" },
     clientAdapter,

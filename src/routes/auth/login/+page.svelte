@@ -4,16 +4,17 @@
   import { Input } from "$lib/components/ui/input";
   import { signIn } from "$lib/domain/api/api-client";
   import { zodClient } from "sveltekit-superforms/adapters";
+  import type { Infer } from "sveltekit-superforms";
   import { defaults, superForm } from "sveltekit-superforms/client";
 
-  import { loginSchema as LoginFormSchema } from "$lib/domain/+shared/schema/auth";
+  import { loginSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(LoginFormSchema as any);
-  const data = defaults({ email: "", password: "" }, clientAdapter);
+  const clientAdapter = zodClient(loginSchema);
+  type Login = Infer<typeof loginSchema>;
+  const data = defaults<Login>({ email: "", password: "" }, clientAdapter);
 
   let isLoading = $state(false);
-  // Using any for client-side typing due to Zod v4 adapter type variance; runtime validation still applies
-  const form = superForm<any>(data, {
+  const form = superForm<Login>(data, {
     dataType: "json",
     SPA: true,
     resetForm: false,
@@ -61,6 +62,7 @@
           {...props}
           type="email"
           placeholder="example@test.com"
+          autocomplete="email"
           bind:value={$formData.email}
           required
         />
@@ -76,6 +78,7 @@
         <Input
           {...props}
           type="password"
+          autocomplete="current-password"
           bind:value={$formData.password}
           required
         />

@@ -5,9 +5,9 @@
   import { forgetPassword } from "$lib/domain/api/api-client";
   import { zodClient } from "sveltekit-superforms/adapters";
   import { defaults, superForm } from "sveltekit-superforms/client";
-  import { resetPasswordSchema as ResetPasswordSchema } from "$lib/domain/+shared/schema/auth";
+  import { resetPasswordSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter = zodClient(ResetPasswordSchema as any);
+  const clientAdapter = zodClient(resetPasswordSchema);
   const data = defaults({ email: "" }, clientAdapter);
 
   let infoMsg = $state("");
