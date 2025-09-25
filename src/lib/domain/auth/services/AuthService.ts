@@ -20,19 +20,63 @@ export class AuthService {
     return { ok: true };
   }
 
-  // Link an OAuth provider for a user (placeholder to keep DI and typing consistent)
-  async linkProvider(userId: StringRecordId, provider: string): Promise<{ ok: true }> {
+  // Link an OAuth provider for a user by storing it in a simple providers array
+  async linkProvider(userId: StringRecordId, provider: string): Promise<{ ok: true; providers: string[] }> {
     if (!provider) throw new Error('provider is required');
     const db = await this.getDb();
-    // Example: store a marker field (no-op here to avoid schema drift)
-    await db.query('RETURN true');
-    return { ok: true };
+    const rid = String(userId);
+    const sep = rid.indexOf(':');
+    const table = sep > 0 ? rid.slice(0, sep) : 'user';
+    const key = sep > 0 ? rid.slice(sep + 1) : rid;
+
+    const [rows] = await db.query<any[]>(
+      /* surql */ `SELECT providers FROM type::thing($table, $key) LIMIT 1`,
+      { table, key }
+    );
+    const first = Array.isArray(rows) && rows.length ? rows[0] : undefined;
+    if (!first) {
+      // ensure record exists so UPDATE succeeds on memory engine
+      await db.query(
+        /* surql */ `CREATE type::thing($table, $key) CONTENT { providers: [] }`,
+        { table, key }
+      );
+    }
+    const existing: string[] = Array.isArray(first?.providers) ? (first.providers as string[]) : [];
+    const providers = Array.from(new Set([...(existing || []), provider]));
+
+    await db.query(
+      /* surql */ `UPDATE type::thing($table, $key) SET providers = $providers RETURN AFTER`,
+      { table, key, providers }
+    );
+    return { ok: true, providers };
   }
 
-  async unlinkProvider(userId: StringRecordId, provider: string): Promise<{ ok: true }> {
+  async unlinkProvider(userId: StringRecordId, provider: string): Promise<{ ok: true; providers: string[] }> {
     if (!provider) throw new Error('provider is required');
     const db = await this.getDb();
-    await db.query('RETURN true');
-    return { ok: true };
+    const rid = String(userId);
+    const sep = rid.indexOf(':');
+    const table = sep > 0 ? rid.slice(0, sep) : 'user';
+    const key = sep > 0 ? rid.slice(sep + 1) : rid;
+
+    const [rows] = await db.query<any[]>(
+      /* surql */ `SELECT providers FROM type::thing($table, $key) LIMIT 1`,
+      { table, key }
+    );
+    const first = Array.isArray(rows) && rows.length ? rows[0] : undefined;
+    if (!first) {
+      await db.query(
+        /* surql */ `CREATE type::thing($table, $key) CONTENT { providers: [] }`,
+        { table, key }
+      );
+    }
+    const existing: string[] = Array.isArray(first?.providers) ? (first.providers as string[]) : [];
+    const providers = (existing || []).filter((p: string) => p !== provider);
+
+    await db.query(
+      /* surql */ `UPDATE type::thing($table, $key) SET providers = $providers RETURN AFTER`,
+      { table, key, providers }
+    );
+    return { ok: true, providers };
   }
 }

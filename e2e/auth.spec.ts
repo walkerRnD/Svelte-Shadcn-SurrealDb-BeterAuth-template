@@ -16,7 +16,11 @@ const E2E = process.env.E2E === 'true';
   // Prefer Dev Login in non-prod for determinism
   const hasDevLogin = await page.getByRole('button', { name: 'Dev Login' }).isVisible().catch(() => false);
   if (hasDevLogin) {
-    await page.getByRole('button', { name: 'Dev Login' }).click();
+    const devBtn = page.getByRole('button', { name: 'Dev Login' });
+    await Promise.race([
+      devBtn.click(),
+      page.waitForLoadState('networkidle'),
+    ]);
   } else {
     await page.getByPlaceholder('example@test.com').fill('testuser@example.com');
     await page.getByLabel('Password').fill('password');

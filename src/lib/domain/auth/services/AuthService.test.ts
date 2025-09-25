@@ -29,10 +29,26 @@ describe('AuthService (Jest, real SurrealDB memory)', () => {
     await expect(service.requestPasswordReset('bad-email')).rejects.toThrow('Invalid email');
   });
 
-  it('link/unlink provider stubs return ok', async () => {
+  it('link/unlink provider persists providers array', async () => {
     const userId = new StringRecordId('user:test-auth-1');
-    await expect(service.linkProvider(userId, 'github')).resolves.toEqual({ ok: true });
-    await expect(service.unlinkProvider(userId, 'github')).resolves.toEqual({ ok: true });
+    // Ensure clean slate
+    await service.unlinkProvider(userId, 'github');
+    // Link adds provider
+    const linked = await service.linkProvider(userId, 'github');
+    expect(linked.ok).toBe(true);
+    expect(linked.providers).toContain('github');
+
+    // Verify in DB
+    const [rows] = await db.query<any[]>(`SELECT providers FROM type::thing($table,$key) LIMIT 1`, {
+      table: 'user',
+      key: 'test-auth-1',
+    });
+    expect(Array.isArray(rows?.[0]?.providers)).toBe(true);
+    expect(rows[0].providers).toContain('github');
+
+    // Unlink removes provider
+    const unlinked = await service.unlinkProvider(userId, 'github');
+    expect(unlinked.providers).not.toContain('github');
   });
 });
 
