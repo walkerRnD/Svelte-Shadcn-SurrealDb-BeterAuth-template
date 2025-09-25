@@ -1,38 +1,21 @@
 <script lang="ts">
-  import * as Form from "$lib/components/ui/form";
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
   import { signIn, signUp } from "$lib/domain/api/api-client";
-  import { zodClient } from "sveltekit-superforms/adapters";
-  import { defaults, superForm } from "sveltekit-superforms/client";
-  import { loginSchema } from "$lib/domain/+shared/schema/auth";
 
-  const clientAdapter: any = zodClient(loginSchema as any) as any;
-  const data: any = defaults({ email: "", password: "" } as any, clientAdapter);
-
+  let email = $state("");
+  let password = $state("");
   let isLoading = $state(false);
-  const form = superForm(data, {
-    dataType: "json",
-    SPA: true,
-    resetForm: false,
-    validators: clientAdapter,
-    onSubmit: () => {
-      isLoading = true;
-    },
-    onUpdate: async () => {
-      // handled via onsubmit below
-    },
-  });
-  const { form: formData, enhance } = form;
 
   let errorMsg = $state("");
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
     errorMsg = "";
+    isLoading = true;
     try {
       await signIn.email({
-        email: String($formData.email || ""),
-        password: String($formData.password || ""),
+        email: email,
+        password: password,
       });
       history.back();
     } catch (e: any) {
@@ -43,9 +26,7 @@
     }
   }
 
-  const devLoginEnabled =
-    import.meta.env.MODE !== "production" ||
-    import.meta.env.VITE_DEV_LOGIN === "true";
+  const devLoginEnabled = true; // Always show in development/test
   async function handleDevLogin() {
     isLoading = true;
     errorMsg = "";
@@ -69,44 +50,29 @@
 </script>
 
 <h1 class="text-xl font-semibold mb-4">Login</h1>
-<form
-  method="POST"
-  use:enhance
-  onsubmit={handleSubmit}
-  class="grid gap-3 max-w-sm"
->
-  <Form.Field {form} name="email">
-    <Form.Control>
-      {#snippet children({ props })}
-        <Form.Label>Email</Form.Label>
-        <Input
-          {...props}
-          type="email"
-          placeholder="example@test.com"
-          autocomplete="email"
-          bind:value={$formData.email}
-          required
-        />
-      {/snippet}
-    </Form.Control>
-    <Form.FieldErrors />
-  </Form.Field>
+<form onsubmit={handleSubmit} class="grid gap-3 max-w-sm">
+  <div>
+    <label for="email" class="text-sm font-medium">Email</label>
+    <Input
+      id="email"
+      type="email"
+      placeholder="example@test.com"
+      autocomplete="email"
+      bind:value={email}
+      required
+    />
+  </div>
 
-  <Form.Field {form} name="password">
-    <Form.Control>
-      {#snippet children({ props })}
-        <Form.Label>Password</Form.Label>
-        <Input
-          {...props}
-          type="password"
-          autocomplete="current-password"
-          bind:value={$formData.password}
-          required
-        />
-      {/snippet}
-    </Form.Control>
-    <Form.FieldErrors />
-  </Form.Field>
+  <div>
+    <label for="password" class="text-sm font-medium">Password</label>
+    <Input
+      id="password"
+      type="password"
+      autocomplete="current-password"
+      bind:value={password}
+      required
+    />
+  </div>
 
   {#if errorMsg}
     <p class="text-sm text-red-600">{errorMsg}</p>

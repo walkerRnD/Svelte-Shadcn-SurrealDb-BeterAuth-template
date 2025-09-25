@@ -158,9 +158,9 @@ Notes
 - [x] UserService backend tests (Jest + Surreal mem) pass
 - [x] API session smoke test present (guarded behind E2E)
 - [x] Playwright e2e specs scaffolded (guarded behind E2E)
-- [ ] Playwright MCP validation performed at http://localhost:5173/
-- [ ] All routes accessible and functional
-- [ ] Auth state properly managed across navigation
+- [x] Playwright MCP validation performed at http://localhost:5173/
+- [x] All routes accessible and functional
+- [x] Auth state properly managed across navigation
 
 ## Implementation order (recommended)
 1. **First**: Install and configure shadcn/ui components
