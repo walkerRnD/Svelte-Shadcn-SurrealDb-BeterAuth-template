@@ -2,7 +2,7 @@
   import * as Form from "$lib/components/ui/form";
   import { Button } from "$lib/components/ui/button";
   import { Input } from "$lib/components/ui/input";
-  import { signIn } from "$lib/domain/api/api-client";
+  import { signIn, signUp } from "$lib/domain/api/api-client";
   import { zod4Client } from "sveltekit-superforms/adapters";
   import { defaults, superForm } from "sveltekit-superforms";
   import { loginSchema } from "$lib/domain/+shared/schema/auth";
@@ -41,6 +41,28 @@
     } finally {
       isLoading = false;
     }
+  }
+
+  const isProd = process.env.NODE_ENV === "production";
+  async function handleDevLogin() {
+    isLoading = true;
+    errorMsg = "";
+    const email = "dev+e2e@example.com";
+    const password = "password1234";
+    try {
+      // try sign in; if fails, sign up then sign in
+      await signIn.email({ email, password });
+    } catch (_) {
+      try {
+        await signUp.email({ email, password, name: "Dev User" });
+        await signIn.email({ email, password });
+      } catch (e: any) {
+        errorMsg = e?.message || "Dev Login failed";
+      }
+    } finally {
+      isLoading = false;
+    }
+    if (!errorMsg) history.back();
   }
 </script>
 
@@ -90,6 +112,16 @@
 
   <Button type="submit" class="mt-3 w-full" disabled={isLoading}>Sign in</Button
   >
+  {#if !isProd}
+    <Button
+      variant="secondary"
+      class="mt-2 w-full"
+      disabled={isLoading}
+      onclick={handleDevLogin}
+    >
+      Dev Login
+    </Button>
+  {/if}
   <div class="flex gap-2 mt-2">
     <a href="/auth/create-account" class="text-sm underline">Create account</a>
     <a href="/auth/reset-password" class="text-sm underline">Reset password</a>

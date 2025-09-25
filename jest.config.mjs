@@ -13,7 +13,7 @@ const config = {
     '^\\$lib/(.*)$': '<rootDir>/src/lib/$1',
   },
   roots: ['<rootDir>/src'],
-  testMatch: ['**/?(*.)+(spec|test).[tj]s'],
+  testMatch: ['**/*.test.ts'],
 };
 
 export default config;

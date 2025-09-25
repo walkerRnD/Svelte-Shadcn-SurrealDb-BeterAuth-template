@@ -155,6 +155,9 @@ Notes
 - [x] TEST uses DB_HOST=mem://test.db; DEV uses DB_HOST=surrealkv://data.db
 
 **Phase 4: Validation**
+- [x] UserService backend tests (Jest + Surreal mem) pass
+- [x] API session smoke test present (guarded behind E2E)
+- [x] Playwright e2e specs scaffolded (guarded behind E2E)
 - [ ] Playwright MCP validation performed at http://localhost:5173/
 - [ ] All routes accessible and functional
 - [ ] Auth state properly managed across navigation
