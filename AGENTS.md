@@ -92,7 +92,7 @@ domain driven design check Agent as example
 - src/lib/domain/ai/ui/molecules
 - src/lib/domain/ai/ui/organisms
 - src/lib/domain/ai/ui/layout
-- src/lib/domain/ai/ui/page
+- src/lib/domain/ai/ui/page/{ComponentName}Page.svelte <-- important to create a page component and use inside +page.svelte
 Other wise it will go to
 - src/lib/domain/+shared/* - same structure above
 for example shared Uis will be
