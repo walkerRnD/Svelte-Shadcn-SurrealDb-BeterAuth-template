@@ -24,7 +24,12 @@
 <nav
   class="container mx-auto max-w-5xl w-full p-3 flex items-center justify-between"
 >
-  <a href="/" class="font-semibold">App</a>
+  <div class="flex items-center gap-4">
+    <a href="/" class="font-semibold">App</a>
+    <a href="/about" class="text-sm text-muted-foreground hover:text-foreground"
+      >Sobre</a
+    >
+  </div>
   <div class="flex items-center gap-2">
     {#if $session.data?.user}
       <span class="text-sm"
