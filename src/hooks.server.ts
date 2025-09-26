@@ -24,7 +24,7 @@ const authHandler: Handle = async ({ event, resolve }) => {
 
 // Paraglide i18n handler to keep %paraglide.lang% in sync
 const handleParaglide: Handle = ({ event, resolve }) =>
-	paraglideMiddleware(event.request, ({ request, locale }) => {
+	paraglideMiddleware(event.request, ({ request, locale }: { request: Request; locale: string }) => {
 		event.request = request;
 		return resolve(event, {
 			transformPageChunk: ({ html }) => html.replace('%paraglide.lang%', locale)

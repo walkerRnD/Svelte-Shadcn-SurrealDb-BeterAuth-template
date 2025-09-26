@@ -1,24 +1,36 @@
 <script lang="ts">
-  import { Button } from '$lib/components/ui/button';
-  import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '$lib/components/ui/dialog';
-  import { deleteUser } from '$lib/domain/api/api-client';
+  import { Button } from "$lib/components/ui/button";
+  import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+  } from "$lib/components/ui/dialog";
+  import { deleteUser } from "$lib/domain/api/api-client";
   let open = false;
-  let errorMsg = '';
+  let errorMsg = "";
   async function handleDelete() {
-    errorMsg = '';
+    errorMsg = "";
     try {
       await deleteUser();
       open = false;
-      location.href = '/';
+      location.href = "/";
     } catch (e: any) {
-      errorMsg = e?.message || 'Failed to delete account';
+      errorMsg = e?.message || "Failed to delete account";
     }
   }
 </script>
 
 <h1 class="text-xl font-semibold mb-4">Delete account</h1>
 <Dialog bind:open>
-  <DialogTrigger asChild><Button variant="destructive">Delete my account</Button></DialogTrigger>
+  <DialogTrigger>
+    {#snippet child({ props })}
+      <Button variant="destructive" {...props}>Delete my account</Button>
+    {/snippet}
+  </DialogTrigger>
   <DialogContent>
     <DialogHeader>
       <DialogTitle>Are you sure?</DialogTitle>
@@ -31,4 +43,3 @@
     </DialogFooter>
   </DialogContent>
 </Dialog>
-

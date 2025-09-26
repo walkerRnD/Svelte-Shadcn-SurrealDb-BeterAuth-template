@@ -12,10 +12,8 @@ export const POST: RequestHandler = async ({ request }) => {
       const res: Response = await api.signOut({ headers: request.headers });
       // Forward any Set-Cookie headers to clear cookies in the browser
       const headersOut = new Headers();
-      // @ts-expect-error: non-standard getSetCookie accessor in SvelteKit Headers
-      const getSetCookie = (res.headers as any).getSetCookie?.bind(res.headers);
-      if (typeof getSetCookie === 'function') {
-        const cookies: string[] = getSetCookie();
+      if (typeof res.headers.getSetCookie === 'function') {
+        const cookies: string[] = res.headers.getSetCookie();
         for (const c of cookies) headersOut.append('set-cookie', c);
       } else {
         const setCookie = res.headers.get('set-cookie');
