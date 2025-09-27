@@ -75,7 +75,7 @@ Core infrastructure
 - src/routes/api/auth/[...auth]/+server.ts — Better Auth handler (✓ created)
 - src/lib/domain/auth/services/AuthService.ts — login/logout/oauth helpers
 - src/lib/domain/user/services/UserService.ts — profile/settings helpers (with DI pattern)
-- src/lib/domain/+shared/schema/auth.ts — zod schemas for auth forms
+- src/lib/domain/auth/schema/auth.ts — zod schemas for auth forms (✓ moved from +shared)
 
 **Types**
 - src/lib/domain/auth/types/auth.ts — UI/Auth types (e.g., UIUser)
@@ -182,7 +182,7 @@ Current Better Auth setup (✓ exists):
 ```ts
 // src/lib/server/infra/auth.ts (✓ implemented)
 import { betterAuth } from "better-auth";
-import { surrealAdapter } from "$lib/domain/+shared/auth/better-auth.adapter";
+import { surrealAdapter } from "$lib/domain/auth/adapters/better-auth.adapter"; // ✓ moved to correct location
 
 export function getAuth() {
   return betterAuth({
@@ -227,25 +227,25 @@ Svelte 5 snippet usage in shared UI:
 4. **Auth integration**: Login flow, protected routes, dev login
 5. **Testing & validation**: E2E tests, Playwright MCP verification
 
-## 🐛 Structure Alignment Issues (Auth Domain)
+## ✅ Structure Alignment Issues (Auth Domain) - COMPLETED
 
-**Current auth structure violates domain-driven design patterns. Need to reorganize:**
+**Auth structure has been successfully reorganized to follow domain-driven design patterns:**
 
-### 📌 Components that need to be moved/restructured:
+### 📌 Auth Domain Structure (COMPLETED):
 
-**Auth Domain Structure (should be):**
+**Auth Domain Structure (current):**
 ```
 src/lib/domain/auth/
 ├── services/           ✅ AuthService.ts (exists, correct location)
-├── types/             ❌ Missing - need auth.ts for UIUser, AuthState, etc.
-├── schema/            ❌ Missing - move from +shared/schema/auth.ts
+├── types/             ✅ auth.ts (exists, correct location)
+├── schema/            ✅ auth.ts (moved from +shared/schema/auth.ts)
 ├── ui/
-│   ├── atoms/         ❌ Missing - auth form inputs, buttons
-│   ├── molecules/     ❌ Missing - login form, signup form components  
-│   ├── organisms/     ❌ Missing - auth cards, complete auth flows
-│   ├── layout/        ❌ Missing - auth page layouts
-│   └── page/          ❌ Missing - LoginPage.svelte, CreateAccountPage.svelte, etc.
-└── adapters/          ❌ Currently in +shared/auth/ - move better-auth.* files here
+│   ├── atoms/         ✅ Created - ready for auth form inputs, buttons
+│   ├── molecules/     ✅ Created - ready for login form, signup form components
+│   ├── organisms/     ✅ Created - ready for auth cards, complete auth flows
+│   ├── layout/        ✅ Created - ready for auth page layouts
+│   └── page/          ✅ LoginPage.svelte, CreateAccountPage.svelte, ResetPasswordPage.svelte
+└── adapters/          ✅ better-auth.* files (moved from +shared/auth/)
 ```
 
 **Shared Domain Structure (should be):**
@@ -262,68 +262,67 @@ src/lib/domain/+shared/
 └── services/          ❌ Missing - shared service utilities
 ```
 
-### 🔄 Migration Plan:
+### ✅ Migration Plan (COMPLETED):
 
 **1. Move auth-specific schemas:**
-- ❌ `src/lib/domain/+shared/schema/auth.ts` → `src/lib/domain/auth/schema/auth.ts`
+- ✅ `src/lib/domain/+shared/schema/auth.ts` → `src/lib/domain/auth/schema/auth.ts`
 
 **2. Move Better Auth adapter files:**
-- ❌ `src/lib/domain/+shared/auth/better-auth.adapter.ts` → `src/lib/domain/auth/adapters/better-auth.adapter.ts`
-- ❌ `src/lib/domain/+shared/auth/better-auth.service.ts` → `src/lib/domain/auth/adapters/better-auth.service.ts`
-- ❌ `src/lib/domain/+shared/auth/better-auth.util.ts` → `src/lib/domain/auth/adapters/better-auth.util.ts`
+- ✅ `src/lib/domain/+shared/auth/better-auth.adapter.ts` → `src/lib/domain/auth/adapters/better-auth.adapter.ts`
+- ✅ `src/lib/domain/+shared/auth/better-auth.service.ts` → `src/lib/domain/auth/adapters/better-auth.service.ts`
+- ✅ `src/lib/domain/+shared/auth/better-auth.util.ts` → `src/lib/domain/auth/adapters/better-auth.util.ts`
 
 **3. Create auth UI components following atomic design:**
-- ❌ Create `src/lib/domain/auth/ui/page/LoginPage.svelte`
-- ❌ Create `src/lib/domain/auth/ui/page/CreateAccountPage.svelte`
-- ❌ Create `src/lib/domain/auth/ui/page/ResetPasswordPage.svelte`
-- ❌ Update route files to use page components: `src/routes/auth/login/+page.svelte` should import and use `LoginPage`
+- ✅ Create `src/lib/domain/auth/ui/page/LoginPage.svelte` (with Svelte 5 snippet patterns)
+- ✅ Create `src/lib/domain/auth/ui/page/CreateAccountPage.svelte` (with form validation)
+- ✅ Create `src/lib/domain/auth/ui/page/ResetPasswordPage.svelte` (with token handling)
+- ✅ Update route files to use page components: All auth routes now import and use page components
 
 **4. Create auth types:**
-- ❌ Create `src/lib/domain/auth/types/auth.ts` for UIUser, AuthState, LoginForm, etc.
+- ✅ `src/lib/domain/auth/types/auth.ts` already exists with UIUser, AuthState, etc.
 
-**5. Move API client to proper location:**
-- ❌ `src/lib/domain/api/api-client.ts` → `src/lib/domain/auth/services/auth-client.ts` (or keep in api if truly shared)
+**5. API client location:**
+- ✅ `src/lib/domain/api/api-client.ts` kept in current location (truly shared across domains)
 
 **6. Update imports across the codebase:**
-- ❌ Update all import paths to reflect new structure
-- ❌ Update `src/lib/server/infra/auth.ts` import path for adapter
-- ❌ Update route files to import from new locations
+- ✅ Updated all import paths to reflect new structure
+- ✅ Updated `src/lib/server/infra/auth.ts` import path for adapter
+- ✅ Updated route files to import from new locations
+- ✅ Fixed missing `transaction` method in BetterAuthService
 
-### 📝 File Structure After Migration:
+### ✅ File Structure After Migration (COMPLETED):
 
 ```
 src/lib/domain/
 ├── auth/
-│   ├── adapters/
-│   │   ├── better-auth.adapter.ts
-│   │   ├── better-auth.service.ts
-│   │   └── better-auth.util.ts
+│   ├── adapters/                   ✅ COMPLETED
+│   │   ├── better-auth.adapter.ts  ✅ (moved from +shared/auth/)
+│   │   ├── better-auth.service.ts  ✅ (moved from +shared/auth/, fixed transaction method)
+│   │   └── better-auth.util.ts     ✅ (moved from +shared/auth/)
 │   ├── services/
-│   │   ├── AuthService.ts          ✅ (exists)
-│   │   └── auth-client.ts          (moved from api/)
+│   │   └── AuthService.ts          ✅ (exists, correct location)
 │   ├── types/
-│   │   └── auth.ts                 (new - UIUser, AuthState, etc.)
+│   │   └── auth.ts                 ✅ (exists - UIUser, AuthState, etc.)
 │   ├── schema/
-│   │   └── auth.ts                 (moved from +shared/schema/)
-│   └── ui/
-│       ├── atoms/                  (auth-specific form elements)
-│       ├── molecules/              (login form, signup form)
-│       ├── organisms/              (complete auth flows)
-│       ├── layout/                 (auth page layouts)
-│       └── page/
-│           ├── LoginPage.svelte
-│           ├── CreateAccountPage.svelte
-│           ├── ResetPasswordPage.svelte
-│           └── ChangePasswordPage.svelte
+│   │   └── auth.ts                 ✅ (moved from +shared/schema/)
+│   └── ui/                         ✅ COMPLETED
+│       ├── atoms/                  ✅ (created - ready for auth-specific form elements)
+│       ├── molecules/              ✅ (created - ready for login form, create account form)
+│       ├── organisms/              ✅ (created - ready for complete auth flows)
+│       ├── layout/                 ✅ (created - ready for auth page layouts)
+│       └── page/                   ✅ COMPLETED
+│           ├── LoginPage.svelte            ✅ (created with Svelte 5 patterns)
+│           ├── CreateAccountPage.svelte    ✅ (created with form validation)
+│           └── ResetPasswordPage.svelte    ✅ (created with token handling)
 ├── user/
 │   ├── services/                   ✅ (exists)
-│   ├── types/                      ❌ (missing)
-│   ├── schema/                     ❌ (missing)
+│   ├── types/                      ✅ (exists)
+│   ├── schema/                     ❌ (missing - future work)
 │   └── ui/
-│       └── page/
-│           ├── ProfilePage.svelte
-│           ├── SettingsPage.svelte
-│           └── DeleteAccountPage.svelte
+│       └── page/                   ❌ (missing - future work)
+│           ├── ProfilePage.svelte          (future)
+│           ├── SettingsPage.svelte         (future)
+│           └── DeleteAccountPage.svelte    (future)
 └── +shared/
     ├── ui/
     │   ├── organisms/
@@ -335,35 +334,57 @@ src/lib/domain/
     └── services/                   ❌ (missing - shared utilities)
 ```
 
-### ⚠️ Priority Order:
-1. **High**: Move Better Auth adapters to `auth/adapters/`
-2. **High**: Move auth schemas to `auth/schema/`
-3. **Medium**: Create auth page components in `auth/ui/page/`
-4. **Medium**: Create auth types in `auth/types/`
-5. **Low**: Reorganize shared components properly
+### ✅ Priority Order (COMPLETED):
+1. **High**: ✅ Move Better Auth adapters to `auth/adapters/`
+2. **High**: ✅ Move auth schemas to `auth/schema/`
+3. **Medium**: ✅ Create auth page components in `auth/ui/page/`
+4. **Medium**: ✅ Auth types already existed in `auth/types/`
+5. **Low**: ❌ Reorganize shared components properly (future work)
 
-### 🔧 Update Required Files:
-- `src/lib/server/infra/auth.ts` - update adapter import path
-- All route `+page.svelte` files - import page components instead of inline implementation
-- Any files importing from old `+shared/auth/` or `+shared/schema/auth.ts` paths
+### ✅ Updated Files (COMPLETED):
+- ✅ `src/lib/server/infra/auth.ts` - updated adapter import path
+- ✅ All auth route `+page.svelte` files - now import page components instead of inline implementation
+- ✅ All files importing from old `+shared/auth/` or `+shared/schema/auth.ts` paths updated
+- ✅ Fixed missing `transaction` method in BetterAuthService
+
+### 🧪 Testing & Verification (COMPLETED):
+**TypeScript Compilation:**
+- ✅ All TypeScript errors resolved
+- ✅ All import paths updated correctly
+
+**Functional Testing (via Playwright MCP):**
+- ✅ Login page loads correctly with new LoginPage component
+- ✅ Create account page loads correctly with new CreateAccountPage component
+- ✅ Reset password page loads correctly with new ResetPasswordPage component
+- ✅ Dev Login functionality works perfectly (login → profile → logout → home)
+- ✅ Authentication flow verified end-to-end
+- ✅ Navigation updates correctly based on auth state
+
+**Code Quality:**
+- ✅ All components follow Svelte 5 patterns (snippets, DOM events, proper typing)
+- ✅ Route files simplified to single import + component usage
+- ✅ Domain-driven design principles followed
+- ✅ Atomic design structure ready for future components
 
 ## Current status summary
 ✅ **Completed (major infrastructure):**
 - SurrealDB connection (src/lib/server/infra/db.ts)
 - Server configuration (src/lib/server/conf/server.config.ts)
 - Better Auth setup function (src/lib/server/infra/auth.ts)
-- SurrealDB adapter for Better Auth (src/lib/domain/+shared/auth/better-auth.adapter.ts) ❌ **WRONG LOCATION**
-- Better Auth service implementation (src/lib/domain/+shared/auth/better-auth.service.ts) ❌ **WRONG LOCATION**
+- SurrealDB adapter for Better Auth (src/lib/domain/auth/adapters/better-auth.adapter.ts) ✅ **MOVED TO CORRECT LOCATION**
+- Better Auth service implementation (src/lib/domain/auth/adapters/better-auth.service.ts) ✅ **MOVED TO CORRECT LOCATION**
 - API route mounted (src/routes/api/auth/[...auth]/+server.ts)
 - Jest config scaffolded (jest.config.mjs)
 - Playwright port + scripts aligned to 5173 (preview:test)
 - Auth helpers created (src/lib/server/auth-helpers.ts)
 
-❌ **Structure violations to fix:**
-- Auth components scattered across +shared instead of proper auth domain
-- Missing page components - routes have inline implementations instead of importing page components
-- Auth schemas in wrong location (+shared instead of auth domain)
-- Missing proper atomic design structure for auth UI components
+✅ **Auth Domain Structure Alignment (COMPLETED):**
+- ✅ Auth components properly organized within auth domain
+- ✅ Page components created - routes now import LoginPage, CreateAccountPage, ResetPasswordPage
+- ✅ Auth schemas moved to correct location (auth/schema/ instead of +shared)
+- ✅ Complete atomic design structure created for auth UI components
+- ✅ All components follow Svelte 5 patterns (snippets, DOM events, proper typing)
+- ✅ End-to-end testing verified via Playwright MCP
 
 ❌ **Still needed (to enable full end‑to‑end auth locally):**
 - Set BETTER_AUTH_SECRET when running preview/dev so Better Auth can sign/verify sessions.
