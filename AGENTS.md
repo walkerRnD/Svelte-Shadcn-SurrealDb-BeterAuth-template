@@ -4,27 +4,29 @@
   * After each feature → check alignment with Svelte 5 idioms (Context 7)
   * use the web wisely
   * follow the existing pattern like vault
-  * each time you finish the task you have to update the progress in md file refrence ( if user specify some plan md) `- [x]`
+  * use unicode icons to track the progress and notes and info type (ref, link) (✅, ❌, ⚠️,❓, 🌀, 📌, 🐛, 📝, 🔗)
   * frontend uses vitest and backend jest for testing
   * if no specification, use preview:test-non-block to test the UI
   * use process.env.<VARIABLE>
+  * use shadcn/ui for components 
 
-### IMPORTANT:
+
+### ⚠️ IMPORTANT:
 NEVER report to the user without checking the result in
 http://localhost:5173/
 USE YOUR playwrite MCP
 
 
-## Svelte 5 UI patterns: snippets and {@render}
+## 📝 Svelte 5 UI patterns: snippets and {@render}
 
 Follow Context 7 Svelte 5 idioms for composing UI:
 
-- Prefer snippet props over legacy named slots
-- Render snippet props in children using {@render ...}
-- Use DOM event attributes (onclick, oninput, etc.), not on:click
-- Prefer callback props to createEventDispatcher for component events
+- ✅ Prefer snippet props over legacy named slots
+- ✅ Render snippet props in children using {@render ...}
+- ✅ Use DOM event attributes (onclick, oninput, etc.), not on:click
+- ✅ Prefer callback props to createEventDispatcher for component events
 
-### Child: accept snippets, render with {@render}
+### 🔗 Child: accept snippets, render with {@render}
 
 Example: SideBySidePanel.svelte
 ```svelte
@@ -41,7 +43,7 @@ Example: SideBySidePanel.svelte
 <div class="right">{@render right?.()}</div>
 ```
 
-### Parent: provide snippets and pass as props
+### 🔗 Parent: provide snippets and pass as props
 
 ```svelte
 <SideBySidePanel>
@@ -50,23 +52,23 @@ Example: SideBySidePanel.svelte
 </SideBySidePanel>
 ```
 
-### Migrating from legacy named slots
+### 🔄 Migrating from legacy named slots
 
-Old (legacy):
+❌ Old (legacy):
 ```svelte
 <SideBySidePanel>
   <svelte:fragment slot="left">...</svelte:fragment>
   <svelte:fragment slot="right">...</svelte:fragment>
 </SideBySidePanel>
 ```
-New (Svelte 5):
+✅ New (Svelte 5):
 ```svelte
 {#snippet left()} ... {/snippet}
 {#snippet right()} ... {/snippet}
 <SideBySidePanel {left} {right} />
 ```
 
-### Events: use DOM attributes and callback props
+### 🔗 Events: use DOM attributes and callback props
 
 ```svelte
 <script>
@@ -80,8 +82,8 @@ New (Svelte 5):
 <button {onclick}>Click</button>
 ```
 
-## Structure
-domain driven design check Agent as example
+## 📁 Structure
+📌 domain driven design check Agent as example
 - src/lib/domain/ai/agents
 - src/lib/domain/ai/services
 - src/lib/domain/ai/tools
@@ -92,21 +94,21 @@ domain driven design check Agent as example
 - src/lib/domain/ai/ui/molecules
 - src/lib/domain/ai/ui/organisms
 - src/lib/domain/ai/ui/layout
-- src/lib/domain/ai/ui/page/{ComponentName}Page.svelte <-- important to create a page component and use inside +page.svelte
+- src/lib/domain/ai/ui/page/{ComponentName}Page.svelte <-- 📌 important to create a page component and use inside +page.svelte
 Other wise it will go to
 - src/lib/domain/+shared/* - same structure above
 for example shared Uis will be
 - src/lib/domain/+shared/ui/{atoms,molecules,organisms,layout,page}/{ComponentName}Page.svelte
 
-## types
+## 📝 types
 
 ```typescript
-// this type represent the data in DB
+// 📌 this type represent the data in DB
 export interface VaultPublic {
   id: RecordId<'vault'>;
   name: string;
   description?: string;
-  created_at?: Date; // in DB data is stored as Date
+  created_at?: Date; // 📝 in DB data is stored as Date
   updated_at?: Date;
 }
 
@@ -120,21 +122,21 @@ export interface UIVaultPublic extends Omit<VaultPublic, EntityUITypeDiff> {
 }
 ```
 
-## API Endpoint
+## 🔗 API Endpoint
 
 ```typescript
-const vaultService = new UserVaultService(getDb); // prepare service out side to share with other methods
+const vaultService = new UserVaultService(getDb); // 📌 prepare service out side to share with other methods
 
 export const PUT: RequestHandler = async ({ request, locals, params }) => {
-  const user = getAuthUser(locals); // get the auth user. throw unauthorized if the user is not logged in (Guard)
+  const user = getAuthUser(locals); // 🔒 get the auth user. throw unauthorized if the user is not logged in (Guard)
   try {
-    // inside service, the ids has to be RecordId or StringRecordId
-    const ownerId = new StringRecordId(user.id); // prepare variable to beused
-    const itemId = new StringRecordId(params.id); // same above. it makes easy to extend the code
+    // 📌 inside service, the ids has to be RecordId or StringRecordId
+    const ownerId = new StringRecordId(user.id); // 📌 prepare variable to beused
+    const itemId = new StringRecordId(params.id); // 📌 same above. it makes easy to extend the code
     const body = await request.json();
-    // service must use RecordId or StringRecordId. if it is accepting raw string, you must fix the service or type/schema
+    // ⚠️ service must use RecordId or StringRecordId. if it is accepting raw string, you must fix the service or type/schema
     const updated = await vaultService.update(ownerId, { id: itemId, name: body.name, description: body.description, value_plain: body.value });
-    const uiData = transform(updated); // transform from Array<VaultPublic> to Array<UIVaultPublic>
+    const uiData = transform(updated); // 🔄 transform from Array<VaultPublic> to Array<UIVaultPublic>
     return json({ item: uiData });
   } catch (e: any) {
     return json({ error: e?.message || 'Failed to update' }, { status: 400 });
@@ -142,33 +144,33 @@ export const PUT: RequestHandler = async ({ request, locals, params }) => {
 };
 ```
 
-## API service
+## 🔗 API service
 
 ```typescript
 export class UserVaultService {
-  // the first param must be getDb
+  // 📌 the first param must be getDb
   constructor(private readonly getDb: () => Promise<Surreal>) { }
   // ... other methods
 
   async list(ownerId: StringRecordId): Promise<VaultPublic[]> {
     const db = await this.getDb();
-    // Surreal DB returns the query results in [RESULT_OF_FIRST_QUERY, RESULT_OF_SECOND_QUERY] format
-    // use bind for security
+    // 📝 Surreal DB returns the query results in [RESULT_OF_FIRST_QUERY, RESULT_OF_SECOND_QUERY] format
+    // 🔒 use bind for security
     const [res] = (await db.query<[Array<VaultPublic>]>(
       /* surql */ `SELECT id, name, description, created_at, updated_at
         FROM vault
         WHERE owner = $ownerId ORDER BY created_at DESC`,
       { ownerId }
     ));
-    return res; // Obs. res has Array<VaultPublic> format ( result of the first query)
+    return res; // 📝 Obs. res has Array<VaultPublic> format ( result of the first query)
   }
 }
 ```
 
-## tests that requres DB
+## 🧪 tests that requres DB
 
 ```typescript
-// always create getDB connected to memory for tests
+// 📌 always create getDB connected to memory for tests
 const getDB = createDbConnection({
 	host: "mem://test.db",
 	namespace: "test",
@@ -176,12 +178,12 @@ const getDB = createDbConnection({
 });
 
 describe("createUserCommand", () => {
-  // all the services that requres DB has the first param as getDB
+  // 📌 all the services that requres DB has the first param as getDB
 	const service = UserVaultService(getDB);
 
 	afterAll(async () => {
 		const db = await getDB();
-    // close the conecction to the test finish properly
+    // 🔒 close the conecction to the test finish properly
 		await db.close();
 	});
 
@@ -195,10 +197,10 @@ describe("createUserCommand", () => {
 ```
 
 
-## Chat
-ref: .augment\knowledge\ai-chat-sdk.md
+## 💬 Chat
+🔗 ref: .augment\knowledge\ai-chat-sdk.md
 
-### backend
+### 🔗 backend
 ```typescript
 import { createOpenAI } from '@ai-sdk/openai';
 import {
@@ -210,18 +212,18 @@ import {
 } from 'ai';
 
 const openai = createOpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // get from process
+  apiKey: process.env.OPENAI_API_KEY, // 📌 get from process
 });
 
 export async function POST({ request }) {
   const { messages }: { messages: UIMessage[] } = await request.json();
 
   const result = streamText({
-    model: openai('gpt-5-mini'), // latest and economic
+    model: openai('gpt-5-mini'), // 💰 latest and economic
     messages: convertToModelMessages(messages),
-    stopWhen: stepCountIs(10), // multi-step tooling
+    stopWhen: stepCountIs(10), // 🔄 multi-step tooling
     tools: {
-      // or apply the JSON from ai_function
+      // 📝 or apply the JSON from ai_function
       weather: tool({
         description: 'Get the weather in a location (fahrenheit)',
         inputSchema: z.object({
@@ -256,17 +258,17 @@ export async function POST({ request }) {
 }
 ```
 
-### frontend
+### 🔗 frontend
 ```typescript
 <script lang="ts">
   import { Chat } from '@ai-sdk/svelte';
 
-  // declare Props types separately
+  // 📌 declare Props types separately
   type Props = { title?: string; win?: Window | null };
   let {
     input = $bindable('Example'),
     win = $bindable(null)
-    // apply types to object. DON'T apply on function like $props<Props>()
+    // 📌 apply types to object. DON'T apply on function like $props<Props>()
   }: Props = $props();
   const chat = new Chat({});
 
@@ -301,7 +303,7 @@ export async function POST({ request }) {
 </main>
 ```
 
-## Form
+## 📝 Form
 ```svelte
 <script lang="ts">
   import * as Form from "$lib/components/ui/form";
@@ -323,7 +325,7 @@ export async function POST({ request }) {
 		onUpdate: async ({ form }) => {
 			const { data } = form;
 			const { email, password } = data;
-      // handle Success
+      // ✅ handle Success
 			isLoading = false;
 		},
 	});
@@ -363,18 +365,42 @@ export async function POST({ request }) {
 </form>
 ```
 
-### Agent
+## Shadcn
+```svelte
+<Dialog bind:open>
+  <DialogTrigger><!-- ⚠️'asChild' is not available in DialogTrigger anymore -->
+    <!-- 📌use snippet to pass the props -->
+    <!-- ⚠️ I case you have type error, check the context 7 or the official svelte shadcn documentation -->
+    {#snippet child({ props })}
+      <Button variant="destructive" {...props}>Delete my account</Button>
+    {/snippet}
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Are you sure?</DialogTitle>
+      <DialogDescription>This action cannot be undone.</DialogDescription>
+    </DialogHeader>
+    {#if errorMsg}<p class="text-sm text-red-600">{errorMsg}</p>{/if}
+    <DialogFooter>
+      <Button variant="secondary" onclick={() => (open = false)}>Cancel</Button>
+      <Button variant="destructive" onclick={handleDelete}>Confirm</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+### 🤖 Agent
 ```typescript
 export class PlannerAgent {
   constructor(private model: LanguageModel, private sess: SessionLike) { }
 
-  // accept the same param with generateText
+  // 📌 accept the same param with generateText
   async run(setting: Omit<Parameters<typeof generateText>[0], 'model'>) {
     const systemPrompt = buildPlannerSystem(this.sess);
     const { messages, stopWhen, temperature, tools } = setting;
     if (!messages) throw new Error('messages must be an array');
 
-    // Get default planner tools
+    // 🔧 Get default planner tools
     const plannerTools = makePlannerTools({ workdir: this.sess.workdir });
     const defaultPlannerTools = Object.values(plannerTools);
 
@@ -400,11 +426,11 @@ export class PlannerAgent {
 }
 ```
 
-Obs.: check also dynamic tooling at https://ai-sdk.dev/docs/ai-sdk-ui/chatbot-tool-usage
+📝 Obs.: check also dynamic tooling at https://ai-sdk.dev/docs/ai-sdk-ui/chatbot-tool-usage
 
-## Tools
+## 🔧 Tools
 
-### Search Tool Pattern
+### 🔍 Search Tool Pattern
 ```typescript
 export function makeGeminiSearchTools() {
   return {
@@ -448,10 +474,10 @@ export function makeGeminiSearchTools() {
 }
 ```
 
-Key patterns:
-- Use direct destructuring in execute: `async ({ queries }) =>` instead of `async (request) =>`
-- Keep descriptions concise and clear
-- Handle arrays of inputs for batch processing
-- Always include error handling for each item
-- Return consistent result format with query and text/error
-- **IMPORTANT**: inputSchema must always be `z.object()` to avoid LLM provider differences
+📌 Key patterns:
+- ✅ Use direct destructuring in execute: `async ({ queries }) =>` instead of `async (request) =>`
+- ✅ Keep descriptions concise and clear
+- ✅ Handle arrays of inputs for batch processing
+- ✅ Always include error handling for each item
+- ✅ Return consistent result format with query and text/error
+- ⚠️ **IMPORTANT**: inputSchema must always be `z.object()` to avoid LLM provider differences
