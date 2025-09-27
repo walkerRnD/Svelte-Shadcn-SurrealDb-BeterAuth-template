@@ -8,7 +8,8 @@
   * frontend uses vitest and backend jest for testing
   * if no specification, use preview:test-non-block to test the UI
   * use process.env.<VARIABLE>
-  * use shadcn/ui for components 
+  * use shadcn/ui for components
+  * use ✅, ❌, ⚠️,❓, 🌀, 🐛 to track the progress
 
 
 ### ⚠️ IMPORTANT:
