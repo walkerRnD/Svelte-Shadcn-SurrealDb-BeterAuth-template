@@ -1,5 +1,5 @@
 import { betterAuth } from "better-auth";
-import { surrealAdapter } from "$lib/domain/+shared/auth/better-auth.adapter";
+import { surrealAdapter } from "$lib/domain/auth/adapters/better-auth.adapter";
 
 function buildAuth(baseURL: string) {
   const BETTER_AUTH_SECRET = process.env.BETTER_AUTH_SECRET;

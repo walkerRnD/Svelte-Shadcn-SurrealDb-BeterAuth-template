@@ -163,4 +163,11 @@ export class BetterAuthService implements Adapter {
     if (!output) throw new SurrealDBQueryError("Failed to update many records");
     return this.transformOutput(output, model) as R;
   }
+
+  async transaction<T>(callback: (adapter: Adapter) => Promise<T>): Promise<T> {
+    // SurrealDB doesn't have explicit transactions in the same way as SQL databases
+    // For now, we'll just execute the callback with this adapter
+    // In a production environment, you might want to implement proper transaction handling
+    return await callback(this);
+  }
 }
