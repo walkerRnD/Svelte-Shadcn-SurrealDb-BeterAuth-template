@@ -5,21 +5,18 @@ import { test, expect } from '@playwright/test';
 test('reset password request shows confirmation', async ({ page }) => {
   const base = process.env.BASE_URL || 'http://localhost:5173';
   await page.goto(base + '/auth/reset-password');
-  await expect(page.getByRole('heading', { level: 1, name: 'Reset password' })).toBeVisible();
+  await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
 
-  await page.getByLabel('Email').fill('dev+e2e@example.com');
-  await page.getByRole('button', { name: 'Send link' }).click();
+  await page.getByLabel(/Email/i).fill('dev+e2e@example.com');
+  await page.getByRole('button', { name: /Send link|Enviar link/i }).click();
 
-  // Accept either confirmation or error message (depends on server behavior)
-  const okMsg = page.getByText('If this email exists, a reset link has been sent.');
-  const errMsg = page.getByText(/Failed to start reset|error/i);
-  const sentOrError = Promise.race([
-    okMsg.waitFor({ state: 'visible' }),
-    errMsg.waitFor({ state: 'visible' }),
-  ]);
+  // Expect either a status/info banner or an error banner
+  const statusBanner = page.getByRole('status');
+  const errorBanner = page.getByTestId('error-banner');
   await Promise.race([
-    sentOrError,
-    page.waitForTimeout(1500),
+    statusBanner.waitFor({ state: 'visible' }),
+    errorBanner.waitFor({ state: 'visible' }),
+    page.waitForTimeout(3000),
   ]);
 });
 

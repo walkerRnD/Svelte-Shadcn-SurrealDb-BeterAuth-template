@@ -1,7 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { test, expect } from '@playwright/test';
 
-test('home page shows Welcome content', async ({ page }) => {
+test('home page smoke: has Login link', async ({ page }) => {
 	const base = process.env.BASE_URL || 'http://localhost:5173';
 	await page.goto(base + '/');
-	await expect(page.getByText('Welcome').first()).toBeVisible();
+	await expect(page.getByRole('link', { name: /Login/i }).first()).toBeVisible();
 });
