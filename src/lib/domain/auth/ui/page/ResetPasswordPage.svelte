@@ -7,6 +7,11 @@
   import { zodClient } from "sveltekit-superforms/adapters";
   import { defaults, superForm } from "sveltekit-superforms/client";
   import type { Snippet } from "svelte";
+  import { m } from "$lib/paraglide/messages.js";
+  import { goto } from "$app/navigation";
+  import ErrorBanner from "$lib/domain/+shared/ui/atoms/ErrorBanner.svelte";
+  import { errorToMessage } from "$lib/domain/auth/ui/utils/errorToMessage";
+  import LoaderIcon from "@lucide/svelte/icons/loader";
 
   // 📌 declare types separately
   type Props = {
@@ -17,12 +22,7 @@
   };
 
   // 📌 apply types to object. DON'T apply on function like $props<Props>()
-  let {
-    token = $bindable(null),
-    onSuccess,
-    title,
-    footer
-  }: Props = $props();
+  let { token = $bindable(null), onSuccess, title, footer }: Props = $props();
 
   const schema = z.object({
     email: z.string().email().optional(),
@@ -37,6 +37,7 @@
 
   let infoMsg = $state("");
   let errorMsg = $state("");
+  let isLoading = $state(false);
 
   // Detect token from query (?token=...) if not provided as prop
   $effect(() => {
@@ -56,41 +57,57 @@
 
   async function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
+    if (isLoading) return; // guard double submit
     infoMsg = "";
     errorMsg = "";
+    isLoading = true;
     try {
       await forgetPassword({ email: String($formData.email || "") });
-      infoMsg = "If this email exists, a reset link has been sent.";
+      infoMsg = m.reset_info_link_sent();
     } catch (e: any) {
-      errorMsg = e?.message || "Failed to start reset";
+      errorMsg = errorToMessage("resetStart", e);
       console.error(e);
+    } finally {
+      isLoading = false;
     }
   }
 
   async function handleReset(event: SubmitEvent) {
     event.preventDefault();
+    if (isLoading) return; // guard double submit
     infoMsg = "";
     errorMsg = "";
+    isLoading = true;
     try {
       const pw = String($formData.password || "");
       const confirm = String($formData.confirm || "");
-      if (pw.length < 8)
-        throw new Error("Password must be at least 8 characters");
-      if (pw !== confirm) throw new Error("Passwords do not match");
-      if (!token) throw new Error("Missing token");
+      if (pw.length < 8) throw new Error(m.reset_error_pw_min_length());
+      if (pw !== confirm) throw new Error(m.reset_error_pw_mismatch());
+      if (!token) throw new Error(m.reset_error_missing_token());
       const { resetPassword } = await import("$lib/domain/api/api-client");
-      await resetPassword({ token, newPassword: pw });
-      infoMsg = "Password has been reset. Redirecting to login...";
-      setTimeout(() => {
-        if (onSuccess) {
-          onSuccess();
-        } else if (typeof window !== "undefined") {
-          window.location.href = "/auth/login";
-        }
-      }, 900);
+      await resetPassword({
+        token,
+        newPassword: pw,
+        fetchOptions: {
+          onError: (ctx) => {
+            // Handle error without redirect
+            throw new Error(ctx.error?.message || m.reset_error_failed());
+          },
+          onSuccess: () => {
+            infoMsg = m.reset_info_reset_ok_redirect();
+            if (onSuccess) {
+              onSuccess();
+            } else {
+              goto("/auth/login");
+            }
+          },
+        },
+      });
     } catch (e: any) {
-      errorMsg = e?.message || "Failed to reset password";
+      errorMsg = errorToMessage("reset", e);
       console.error(e);
+    } finally {
+      isLoading = false;
     }
   }
 </script>
@@ -98,7 +115,7 @@
 {#if title}
   {@render title()}
 {:else}
-  <h1 class="text-xl font-semibold mb-4">Reset password</h1>
+  <h1 class="text-xl font-semibold mb-4">{m.login_link_reset_password()}</h1>
 {/if}
 
 {#if token}
@@ -106,7 +123,7 @@
     <Form.Field {form} name="password">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label>New password</Form.Label>
+          <Form.Label>{m.reset_label_new_password()}</Form.Label>
           <Input
             {...props}
             type="password"
@@ -122,7 +139,7 @@
     <Form.Field {form} name="confirm">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label>Confirm password</Form.Label>
+          <Form.Label>{m.reset_label_confirm_password()}</Form.Label>
           <Input
             {...props}
             type="password"
@@ -135,15 +152,20 @@
       <Form.FieldErrors />
     </Form.Field>
 
-    {#if infoMsg}<p class="text-sm text-green-600">{infoMsg}</p>{/if}
-    {#if errorMsg}<p class="text-sm text-red-600">{errorMsg}</p>{/if}
-    
+    {#if infoMsg}<ErrorBanner message={infoMsg} variant="info" />{/if}
+    <ErrorBanner message={errorMsg} />
+
     <div class="flex gap-2">
-      <Button type="submit">Reset password</Button>
+      <Button type="submit" disabled={isLoading}>
+        {#if isLoading}<LoaderIcon class="h-4 w-4 animate-spin" />{/if}
+        {#if !isLoading}{m.login_link_reset_password()}{/if}
+      </Button>
       {#if footer}
         {@render footer()}
       {:else}
-        <a href="/auth/login" class="text-sm underline">Back to login</a>
+        <a href="/auth/login" class="text-sm underline"
+          >{m.auth_go_to_login()}</a
+        >
       {/if}
     </div>
   </form>
@@ -152,12 +174,13 @@
     <Form.Field {form} name="email">
       <Form.Control>
         {#snippet children({ props })}
-          <Form.Label>Email</Form.Label>
+          <Form.Label>{m.login_label_email()}</Form.Label>
           <Input
             {...props}
             type="email"
             autocomplete="email"
             bind:value={$formData.email}
+            disabled={isLoading}
             required
           />
         {/snippet}
@@ -165,15 +188,20 @@
       <Form.FieldErrors />
     </Form.Field>
 
-    {#if infoMsg}<p class="text-sm text-green-600">{infoMsg}</p>{/if}
-    {#if errorMsg}<p class="text-sm text-red-600">{errorMsg}</p>{/if}
-    
+    {#if infoMsg}<ErrorBanner message={infoMsg} variant="info" />{/if}
+    <ErrorBanner message={errorMsg} />
+
     <div class="flex gap-2">
-      <Button type="submit">Send link</Button>
+      <Button type="submit" disabled={isLoading}>
+        {#if isLoading}<LoaderIcon class="h-4 w-4 animate-spin" />{/if}
+        {#if !isLoading}{m.reset_send_link()}{/if}
+      </Button>
       {#if footer}
         {@render footer()}
       {:else}
-        <a href="/auth/login" class="text-sm underline">Back to login</a>
+        <a href="/auth/login" class="text-sm underline"
+          >{m.auth_go_to_login()}</a
+        >
       {/if}
     </div>
   </form>

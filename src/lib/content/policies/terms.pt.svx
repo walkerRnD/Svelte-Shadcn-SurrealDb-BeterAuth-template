@@ -1,0 +1,405 @@
+# TERMOS DE SERVIÇO
+
+**Última atualização: 29 de Janeiro de 2025**
+
+## ACEITAÇÃO DOS TERMOS
+
+Bem-vindo ao **Pic Flow**! Ao acessar ou usar nossa plataforma em **https://pic-flow.vercel.app/**, você concorda em cumprir e estar vinculado a estes Termos de Serviço. Se você não concordar com qualquer parte destes termos, não deverá usar nossos serviços.
+
+Estes Termos de Serviço constituem um acordo legal entre você (o "Usuário") e Walker - Research & Development, CNPJ 57.321.458/0001-60, situada em R. Dr. Francisco Pati, 322 - Vila São Francisco (o "Pic Flow", "nós", "nosso").
+
+## O QUE É O PIC FLOW
+
+O Pic Flow é uma plataforma que permite criar **Energy Cards** — cartões digitais com arte gerada por inteligência artificial a partir de vídeos ou áudios. O serviço inclui:
+
+- Upload e processamento de vídeos/áudios
+- Análise de conteúdo por IA (Gemini)
+- Geração automática de arte visual personalizada
+- Descrições multilíngues (PT, EN, ES)
+- Compartilhamento via links, QR codes e tags NFC
+- Integração com redes sociais
+
+## ELEGIBILIDADE
+
+Para usar o Pic Flow, você deve:
+- Ter pelo menos **13 anos de idade**
+- Fornecer informações verdadeiras e precisas durante o cadastro
+- Ter capacidade legal para celebrar contratos vinculativos
+- Não estar proibido de usar o serviço por qualquer lei aplicável
+
+Menores entre 13 e 18 anos devem ter supervisão parental.
+
+## CRIAÇÃO DE CONTA
+
+### Cadastro
+Para usar o Pic Flow, você deve criar uma conta fornecendo:
+- E-mail válido
+- Nome completo
+- Senha segura (ou autenticação via Google OAuth)
+
+### Responsabilidade da Conta
+Você é responsável por:
+- Manter a confidencialidade de suas credenciais
+- Todas as atividades realizadas em sua conta
+- Notificar-nos imediatamente sobre uso não autorizado
+
+Não compartilhe sua conta com terceiros.
+
+## DESCRIÇÃO DO SERVIÇO
+
+### Energy Cards
+O Pic Flow permite criar Energy Cards através do seguinte processo:
+
+1. **Upload**: Você envia um vídeo ou áudio
+2. **Processamento**: Geramos thumbnail da primeira imagem
+3. **Análise IA**: Gemini analisa o conteúdo e cria um prompt
+4. **Geração de Arte**: IA cria arte visual baseada no prompt
+5. **Descrição**: Geramos descrição multilíngue automática
+6. **Entrega**: Você recebe o Energy Card pronto para compartilhar
+
+### Tempo de Processamento
+- **Tempo estimado**: ~5 minutos por Energy Card
+- **Melhor esforço**: Não garantimos SLA para plano gratuito
+- **Variações**: Tempo pode variar conforme demanda e complexidade
+
+### Qualidade e Limitações
+- A qualidade da arte depende da qualidade do vídeo/áudio enviado
+- Resultados podem variar e não são garantidos
+- Você pode regenerar se não gostar do resultado (sujeito a limites)
+
+## PLANOS E LIMITES DE USO
+
+### Plano Gratuito (Free)
+- **3 Energy Cards por mês**
+- Acesso a estilos básicos
+- Compartilhamento via link, QR code e NFC
+- Sem SLA de processamento
+- Analytics básicos
+
+### Pay-as-you-go
+- **Pagamento por Energy Card criado**
+- Preço: a ser definido e exibido na plataforma
+- Sem limite mensal
+- Acesso a todos os estilos
+- Prioridade no processamento
+
+### Plano Partner (Parceiros)
+- **Assinatura mensal + comissão sobre vendas**
+- Geração em lote
+- Branding personalizado (logo, watermark)
+- Checkout rápido para venda no local
+- Repasse financeiro via Stripe
+- Analytics avançados
+
+### Plano Business (PMEs)
+- **Assinatura por assento**
+- Múltiplos membros da equipe
+- Brand kit completo
+- API e webhooks
+- SLA de processamento
+- Suporte prioritário
+
+### Reset de Limites
+- Limites do plano gratuito resetam no primeiro dia de cada mês
+- Créditos pay-as-you-go não expiram
+
+## CONTEÚDO DO USUÁRIO E DIREITOS
+
+### Propriedade do Conteúdo
+Você mantém todos os direitos sobre:
+- Vídeos e áudios que você envia
+- Energy Cards gerados a partir do seu conteúdo
+
+### Licença ao Pic Flow
+Ao enviar conteúdo, você concede ao Pic Flow uma licença limitada, não exclusiva, mundial e livre de royalties para:
+- Processar e analisar seu conteúdo
+- Gerar thumbnails, prompts e arte
+- Hospedar e distribuir Energy Cards conforme suas configurações de privacidade
+- Usar dados anonimizados para melhorias da plataforma
+
+### Responsabilidade do Usuário
+Você é responsável por garantir que possui:
+- **Direitos de imagem**: de todas as pessoas que aparecem no vídeo
+- **Direitos autorais**: do conteúdo enviado (música, vídeo, etc.)
+- **Autorizações necessárias**: releases de modelo, consentimentos
+
+Você declara e garante que:
+- Possui todos os direitos necessários sobre o conteúdo enviado
+- O conteúdo não viola direitos de terceiros
+- Obteve consentimento de pessoas identificáveis no conteúdo
+
+## CONTEÚDO PROIBIDO
+
+É estritamente proibido enviar ou criar Energy Cards com:
+
+### Conteúdo Ilegal
+- Material que viole leis brasileiras ou internacionais
+- Conteúdo que promova atividades ilegais
+
+### Conteúdo Adulto/NSFW
+- Nudez ou conteúdo sexualmente explícito
+- Pornografia ou material erótico
+
+### Violência e Ódio
+- Conteúdo violento, gore ou chocante
+- Discurso de ódio, discriminação ou assédio
+- Ameaças ou intimidação
+
+### Propriedade Intelectual
+- Material protegido por direitos autorais sem autorização
+- Marcas registradas de terceiros sem permissão
+- Plágio ou falsificação
+
+### Spam e Abuso
+- Spam, phishing ou esquemas fraudulentos
+- Malware ou código malicioso
+- Manipulação ou abuso do sistema
+
+### Impersonação
+- Fingir ser outra pessoa ou entidade
+- Perfis falsos ou enganosos
+
+## MODERAÇÃO E APLICAÇÃO
+
+### Detecção Automática
+Utilizamos sistemas automatizados para detectar:
+- Conteúdo NSFW
+- Linguagem tóxica ou ofensiva
+- Violações de direitos autorais
+
+### Revisão Humana
+Casos limítrofes podem ser revisados manualmente por nossa equipe.
+
+### Consequências de Violações
+Podemos, a nosso critério:
+- Remover conteúdo que viole estes Termos
+- Suspender ou encerrar sua conta
+- Reportar atividades ilegais às autoridades
+- Buscar reparação legal
+
+### Apelações
+Se você acredita que uma ação foi tomada por engano, pode apelar através de **adm@walker-di.com.br**.
+
+## PAGAMENTOS E FATURAMENTO
+
+### Processamento de Pagamentos
+Todos os pagamentos são processados via **Stripe**, que suporta:
+- Pix
+- Cartão de crédito
+- Apple Pay
+- Google Pay
+
+### Preços
+- Preços são exibidos na plataforma antes da compra
+- Preços podem mudar com aviso prévio de 30 dias
+- Impostos aplicáveis serão adicionados conforme a lei
+
+### Faturamento
+- **Pay-as-you-go**: cobrado imediatamente após criação do Energy Card
+- **Assinaturas**: cobradas mensalmente no dia da contratação
+- **Parceiros**: assinatura + comissão sobre vendas
+
+### Reembolsos
+Oferecemos reembolso nas seguintes situações:
+
+#### Falha no Processamento
+- Se o Energy Card não for gerado devido a erro do sistema
+- Crédito automático ou reembolso via Stripe
+
+#### Garantia de Qualidade
+- Se o resultado for tecnicamente defeituoso (imagem corrompida, etc.)
+- Não aplicável a preferências subjetivas de estilo
+
+#### Política de Reembolso
+- Solicite reembolso em até 7 dias via **adm@walker-di.com.br**
+- Análise caso a caso
+- Reembolso processado em até 10 dias úteis
+
+### Chargebacks
+Chargebacks indevidos podem resultar em:
+- Suspensão da conta
+- Cobrança de taxas administrativas
+- Ação legal para recuperação de valores
+
+## TERMOS ESPECÍFICOS PARA PARCEIROS
+
+### Elegibilidade
+Para se tornar um Parceiro, você deve:
+- Ter CNPJ ou CPF válido
+- Fornecer dados bancários para repasse
+- Concordar com termos adicionais de parceria
+
+### Comissões e Repasses
+- **Estrutura de comissão**: definida no contrato de parceria
+- **Repasse**: via Stripe, conforme cronograma acordado
+- **Valor mínimo**: R$ 50,00 para saque
+- **Prazo**: até 15 dias após fechamento do período
+
+### Branding
+Parceiros podem:
+- Adicionar logo e watermark aos Energy Cards
+- Personalizar cores e estilos
+- Usar domínio personalizado (planos superiores)
+
+### Dados de Clientes
+Parceiros devem:
+- Obter consentimento explícito dos clientes
+- Coletar releases de modelo quando necessário
+- Cumprir LGPD e leis de proteção de dados
+- Não usar dados de clientes para fins não autorizados
+
+### Responsabilidade
+Parceiros são responsáveis por:
+- Disputas com clientes finais
+- Qualidade do conteúdo capturado
+- Conformidade legal em eventos
+
+## DISPONIBILIDADE DO SERVIÇO
+
+### Melhor Esforço
+- Não garantimos uptime de 100%
+- Manutenções programadas serão comunicadas com antecedência
+- Interrupções emergenciais podem ocorrer sem aviso
+
+### SLA (Plano Business)
+Planos Business incluem:
+- 99% de uptime mensal
+- Suporte prioritário
+- Compensação por downtime conforme contrato
+
+### Mudanças no Serviço
+Reservamos o direito de:
+- Modificar recursos e funcionalidades
+- Descontinuar recursos com aviso de 30 dias
+- Atualizar estilos de arte e modelos de IA
+
+## INTEGRAÇÕES COM TERCEIROS
+
+O Pic Flow integra com serviços de terceiros:
+
+### Serviços de IA
+- **Google Gemini**: análise de conteúdo
+- **Serviços de geração de imagem**: criação de arte
+
+### Pagamentos
+- **Stripe**: processamento de pagamentos
+
+### Redes Sociais
+- **Instagram, LinkedIn, WhatsApp, YouTube, TikTok**: compartilhamento
+
+### Responsabilidade
+- Não somos responsáveis por falhas de serviços de terceiros
+- Termos de terceiros aplicam-se ao uso de suas plataformas
+- Mudanças em APIs de terceiros podem afetar funcionalidades
+
+## PROPRIEDADE INTELECTUAL
+
+### Marca e Conteúdo do Pic Flow
+- "Pic Flow" e logos são marcas registradas
+- Todo conteúdo da plataforma (exceto conteúdo do usuário) é protegido por direitos autorais
+- Você não pode usar nossa marca sem autorização
+
+### Feedback e Sugestões
+Ao enviar feedback ou sugestões:
+- Você concede ao Pic Flow direitos ilimitados para usar, modificar e implementar
+- Não há obrigação de compensação
+- Não há obrigação de implementação
+
+## ISENÇÕES DE RESPONSABILIDADE
+
+### Serviço "Como Está"
+O Pic Flow é fornecido "como está" e "conforme disponível", sem garantias de qualquer tipo.
+
+### Não Garantimos
+- Resultados específicos ou qualidade da arte gerada
+- Disponibilidade ininterrupta ou livre de erros
+- Adequação a propósitos específicos
+- Precisão ou confiabilidade do conteúdo gerado por IA
+
+### Limitação de Responsabilidade
+Na máxima extensão permitida por lei:
+- Não somos responsáveis por danos indiretos, incidentais ou consequenciais
+- Nossa responsabilidade total é limitada ao valor pago nos últimos 12 meses
+- Não somos responsáveis por perda de dados, lucros ou oportunidades
+
+## INDENIZAÇÃO
+
+Você concorda em indenizar e isentar o Pic Flow de:
+- Violações destes Termos por você
+- Violações de direitos de terceiros pelo seu conteúdo
+- Uso não autorizado de sua conta
+- Reclamações de terceiros relacionadas ao seu uso do serviço
+
+## ENCERRAMENTO
+
+### Por Você
+Você pode encerrar sua conta a qualquer momento através de:
+- Configurações da conta
+- E-mail para **adm@walker-di.com.br**
+
+### Por Nós
+Podemos suspender ou encerrar sua conta se:
+- Você violar estes Termos
+- Houver atividade fraudulenta ou ilegal
+- Você não pagar valores devidos
+- A critério nosso, por qualquer motivo, com aviso de 30 dias
+
+### Efeitos do Encerramento
+Após encerramento:
+- Acesso à conta é revogado imediatamente
+- Energy Cards podem ser mantidos conforme configurações de privacidade
+- Dados pessoais são excluídos conforme Política de Privacidade
+- Obrigações de pagamento permanecem
+
+## ALTERAÇÕES AOS TERMOS
+
+Podemos modificar estes Termos a qualquer momento. Alterações significativas serão comunicadas via:
+- E-mail para usuários cadastrados
+- Notificação na plataforma
+- Atualização da data no topo deste documento
+
+Uso continuado após alterações constitui aceitação dos novos termos.
+
+## RESOLUÇÃO DE DISPUTAS
+
+### Lei Aplicável
+Estes Termos são regidos pelas leis brasileiras.
+
+### Jurisdição
+Disputas serão resolvidas no foro da comarca da sede da empresa, salvo disposição legal em contrário.
+
+### Resolução Amigável
+Encorajamos resolução amigável de disputas através de:
+- Contato direto com suporte
+- Mediação, se necessário
+
+## DISPOSIÇÕES GERAIS
+
+### Acordo Integral
+Estes Termos constituem o acordo integral entre você e o Pic Flow.
+
+### Divisibilidade
+Se qualquer disposição for considerada inválida, as demais permanecem em vigor.
+
+### Renúncia
+Falha em exercer direitos não constitui renúncia.
+
+### Cessão
+Você não pode ceder estes Termos sem nosso consentimento. Podemos ceder a qualquer momento.
+
+### Notificações
+Notificações serão enviadas via e-mail cadastrado ou através da plataforma.
+
+## CONTATO
+
+Para dúvidas sobre estes Termos de Serviço:
+
+**E-mail**: adm@walker-di.com.br  
+**Plataforma**: https://pic-flow.vercel.app/  
+**Endereço**: R. Dr. Francisco Pati, 322 - Vila São Francisco  
+**CNPJ**: 57.321.458/0001-60
+
+---
+
+**Ao usar o Pic Flow, você confirma que leu, compreendeu e concorda com estes Termos de Serviço.**
+

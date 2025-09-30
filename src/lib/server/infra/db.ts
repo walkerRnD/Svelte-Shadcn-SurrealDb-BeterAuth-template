@@ -54,6 +54,7 @@ export async function getDb(): Promise<Surreal> {
       resolve(db);
     }
     catch (error) {
+      console.error('getDb error', error);
       reject(error);
     }
     finally {
@@ -76,10 +77,6 @@ export const createDbConnection = async (conf: SERVER_DB_CONF) => {
   await db.connect(host, {
     namespace: namespace,
     database: database,
-    // auth: {
-    //   username: username,
-    //   password: password,
-    // }
   });
   if (isEmbedded) {
     await db.query(INIT_DB_QUERY);
@@ -95,7 +92,9 @@ export const createDbConnection = async (conf: SERVER_DB_CONF) => {
   await db.signin({
     username,
     password,
+    namespace,
+    database
   });
-  await db.query(INIT_DB_QUERY);
+  // await db.query(INIT_DB_QUERY);
   return db;
 };

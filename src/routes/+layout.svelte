@@ -3,6 +3,7 @@
 	import favicon from "$lib/assets/favicon.svg";
 	import AppShell from "$lib/domain/+shared/ui/layout/AppShell.svelte";
 	import NavBar from "$lib/domain/+shared/ui/organisms/NavBar.svelte";
+	import Footer from "$lib/domain/+shared/ui/organisms/Footer.svelte";
 
 	let { children } = $props();
 </script>
@@ -11,7 +12,16 @@
 	<link rel="icon" href={favicon} />
 </svelte:head>
 
-{#snippet header()}<NavBar />{/snippet}
-{#snippet content()}{@render children?.()}{/snippet}
+<AppShell>
+	{#snippet header()}
+		<NavBar />
+	{/snippet}
 
-<AppShell {header} {content} />
+	{#snippet content()}
+		{@render children?.()}
+	{/snippet}
+
+	{#snippet footer()}
+		<Footer />
+	{/snippet}
+</AppShell>

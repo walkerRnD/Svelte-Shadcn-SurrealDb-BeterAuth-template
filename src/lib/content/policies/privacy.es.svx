@@ -1,0 +1,223 @@
+# POLÍTICA DE PRIVACIDAD
+
+**Última actualización: 29 de enero de 2025**
+
+## INFORMACIÓN GENERAL
+
+Esta Política de Privacidad contiene información sobre la recopilación, uso, almacenamiento, procesamiento y protección de datos personales de usuarios y visitantes de la plataforma **Pic Flow**, accesible en **https://pic-flow.vercel.app/**, con el propósito de demostrar transparencia absoluta sobre el tema y aclarar a todas las partes interesadas sobre los tipos de datos recopilados, las razones de la recopilación y cómo los usuarios pueden gestionar o eliminar su información personal.
+
+Esta Política de Privacidad se aplica a todos los usuarios y visitantes de la plataforma Pic Flow y forma parte de los Términos y Condiciones Generales de Uso. La plataforma es operada por Walker - Research & Development, debidamente registrada bajo CNPJ No. 57.321.458/0001-60, ubicada en R. Dr. Francisco Pati, 322 - Vila São Francisco.
+
+Este documento fue preparado de acuerdo con la Ley General de Protección de Datos de Brasil (Ley 13.709/18), el Marco Civil de Internet de Brasil (Ley 12.965/14) y el Reglamento de la UE No. 2016/679 (GDPR). El documento puede actualizarse debido a cambios regulatorios, por lo que se invita a los usuarios a consultar periódicamente esta sección.
+
+## QUÉ ES PIC FLOW
+
+Pic Flow es una plataforma que permite a los usuarios crear **Energy Cards** — tarjetas digitales con arte generado por IA a partir de videos o archivos de audio cargados por los usuarios. El servicio incluye:
+
+- Carga y procesamiento de video/audio
+- Análisis de contenido con IA (Gemini) para generación de prompts
+- Creación de arte visual personalizado
+- Generación de descripciones multilingües (PT, EN, ES)
+- Compartir mediante enlaces, códigos QR y etiquetas NFC
+- Integración con redes sociales (Instagram, LinkedIn, WhatsApp, YouTube, TikTok)
+
+## CÓMO RECOPILAMOS DATOS PERSONALES
+
+Los datos personales de usuarios y visitantes son recopilados por la plataforma de las siguientes maneras:
+
+### Creación de Cuenta
+
+Cuando un usuario crea una cuenta en la plataforma Pic Flow, recopilamos datos básicos de identificación como:
+- Correo electrónico
+- Nombre completo
+- Foto de perfil (opcional)
+- Método de autenticación (Google OAuth, correo/contraseña)
+
+### Carga de Contenido (Energy Cards)
+
+Cuando los usuarios cargan videos o audio para crear Energy Cards, recopilamos:
+- **Archivos de video/audio**: almacenados temporalmente durante el procesamiento
+- **Miniaturas**: primer fotograma del video, almacenado permanentemente
+- **Análisis de IA**: prompts generados a partir del análisis de contenido
+- **Arte generado**: imágenes creadas por IA, almacenadas permanentemente
+- **Descripciones**: textos multilingües generados automáticamente
+- **Comentarios del usuario**: reacciones (👍/👎), solicitudes de regeneración
+
+### Navegación y Uso de la Plataforma
+
+Recopilamos información sobre la interacción y el acceso para garantizar una mejor experiencia:
+- Páginas visitadas y tiempo de permanencia
+- Palabras clave utilizadas en búsquedas
+- Dispositivo y navegador utilizados
+- Dirección IP y ubicación geográfica aproximada
+- Cookies y tecnologías similares
+
+## PARA QUÉ UTILIZAMOS SUS DATOS
+
+Los datos personales recopilados tienen los siguientes propósitos:
+
+### Provisión del Servicio
+- Crear y gestionar su cuenta
+- Procesar videos/audio y generar Energy Cards
+- Almacenar y entregar contenido generado
+- Permitir compartir y acceder a Energy Cards
+
+### Mejora del Servicio
+- Analizar patrones de uso para mejorar funcionalidades
+- Desarrollar nuevas características basadas en feedback
+- Optimizar el rendimiento de la plataforma
+- Personalizar la experiencia del usuario
+
+### Comunicación
+- Enviar notificaciones sobre su cuenta
+- Responder a solicitudes de soporte
+- Informar sobre actualizaciones del servicio
+- Enviar comunicaciones de marketing (con consentimiento)
+
+### Seguridad y Cumplimiento
+- Prevenir fraude y abuso
+- Proteger contra acceso no autorizado
+- Cumplir con obligaciones legales
+- Resolver disputas
+
+## COMPARTIR DATOS CON TERCEROS
+
+Pic Flow puede compartir datos personales con terceros en las siguientes situaciones:
+
+### Proveedores de Servicios
+- **Google Cloud Platform**: almacenamiento de archivos y hosting
+- **Vercel**: hosting de la aplicación web
+- **Google Gemini**: análisis de contenido con IA
+- **Proveedores de IA de imágenes**: generación de arte
+- **Servicios de email**: notificaciones transaccionales
+
+### Cumplimiento Legal
+Podemos divulgar datos cuando sea requerido por:
+- Orden judicial o solicitud gubernamental
+- Protección de derechos legales
+- Investigación de fraude o violaciones de seguridad
+- Cumplimiento de leyes aplicables
+
+### Transferencias Comerciales
+En caso de fusión, adquisición o venta de activos, los datos de usuarios pueden ser transferidos a la nueva entidad.
+
+## ALMACENAMIENTO Y SEGURIDAD
+
+### Ubicación de Datos
+Los datos son almacenados en servidores ubicados en:
+- Brasil (servidor principal)
+- Estados Unidos (servicios de Google Cloud)
+- Europa (backups y CDN)
+
+### Medidas de Seguridad
+Implementamos medidas técnicas y organizativas para proteger sus datos:
+- Cifrado de datos en tránsito (HTTPS/TLS)
+- Cifrado de datos en reposo
+- Control de acceso basado en roles
+- Auditorías de seguridad regulares
+- Monitoreo de actividades sospechosas
+
+### Período de Retención
+- **Datos de cuenta**: mientras la cuenta esté activa
+- **Energy Cards**: hasta que el usuario las elimine
+- **Videos/audio originales**: eliminados después del procesamiento (máx. 24h)
+- **Logs de acceso**: 90 días
+- **Datos de facturación**: según requerimientos legales (5 años)
+
+## SUS DERECHOS
+
+De acuerdo con LGPD y GDPR, usted tiene los siguientes derechos:
+
+### Acceso y Portabilidad
+- Solicitar una copia de sus datos personales
+- Recibir datos en formato estructurado y legible por máquina
+- Transferir datos a otro proveedor de servicios
+
+### Corrección y Actualización
+- Corregir datos inexactos o incompletos
+- Actualizar información de perfil
+
+### Eliminación
+- Solicitar la eliminación de su cuenta y datos asociados
+- Derecho al olvido (sujeto a obligaciones legales)
+
+### Restricción y Oposición
+- Limitar el procesamiento de sus datos
+- Oponerse al procesamiento para fines de marketing
+- Revocar consentimiento en cualquier momento
+
+### No Discriminación
+No será discriminado por ejercer sus derechos de privacidad.
+
+## COOKIES Y TECNOLOGÍAS DE RASTREO
+
+Pic Flow utiliza cookies y tecnologías similares para:
+
+### Cookies Esenciales
+- Autenticación de sesión
+- Preferencias de idioma
+- Funcionalidad básica de la plataforma
+
+### Cookies de Análisis
+- Google Analytics (opcional, con consentimiento)
+- Métricas de uso y rendimiento
+- Análisis de comportamiento del usuario
+
+### Gestión de Cookies
+Puede gestionar preferencias de cookies a través de:
+- Configuraciones del navegador
+- Panel de preferencias de la plataforma
+- Herramientas de opt-out de terceros
+
+## PRIVACIDAD DE MENORES
+
+Pic Flow no está dirigido a menores de 13 años. No recopilamos intencionalmente datos de niños menores de 13 años. Si descubrimos que hemos recopilado datos de un menor de 13 años, eliminaremos esos datos inmediatamente.
+
+Usuarios entre 13 y 18 años deben tener supervisión parental al usar la plataforma.
+
+## TRANSFERENCIAS INTERNACIONALES
+
+Algunos de nuestros proveedores de servicios están ubicados fuera de Brasil. Garantizamos que las transferencias internacionales de datos cumplan con:
+- Cláusulas contractuales estándar
+- Certificaciones de privacidad (Privacy Shield, cuando aplicable)
+- Consentimiento explícito del usuario
+
+## CAMBIOS EN ESTA POLÍTICA
+
+Podemos actualizar esta Política de Privacidad periódicamente. Notificaremos cambios significativos mediante:
+- Aviso en la plataforma
+- Email a usuarios registrados
+- Actualización de la fecha "Última actualización"
+
+El uso continuado de la plataforma después de cambios constituye aceptación de la política actualizada.
+
+## CONTACTO
+
+Para preguntas, solicitudes o ejercicio de derechos relacionados con privacidad, contáctenos:
+
+**Walker - Research & Development**
+- Email: stylethewalker@gmail.com
+- Dirección: R. Dr. Francisco Pati, 322 - Vila São Francisco
+- CNPJ: 57.321.458/0001-60
+
+**Oficial de Protección de Datos (DPO)**
+- Email: stylethewalker@gmail.com
+
+Responderemos a todas las solicitudes dentro de 30 días.
+
+## LEGISLACIÓN APLICABLE
+
+Esta Política de Privacidad se rige por:
+- Ley General de Protección de Datos de Brasil (LGPD - Ley 13.709/18)
+- Marco Civil de Internet de Brasil (Ley 12.965/14)
+- Reglamento General de Protección de Datos de la UE (GDPR - Reglamento 2016/679)
+- Código de Defensa del Consumidor de Brasil (Ley 8.078/90)
+
+Las disputas serán resueltas en los tribunales de Brasil.
+
+---
+
+**Última actualización: 29 de enero de 2025**
+
+Al usar Pic Flow, usted reconoce que ha leído, entendido y aceptado esta Política de Privacidad.
+

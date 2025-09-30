@@ -8,7 +8,8 @@
   * frontend uses vitest and backend jest for testing
   * if no specification, use preview:test-non-block to test the UI
   * use process.env.<VARIABLE>
-  * use shadcn/ui for components
+  * use shadcn/ui for components 
+  * all the UI components must be i18n ready
   * use ✅, ❌, ⚠️,❓, 🌀, 🐛 to track the progress
 
 
@@ -360,9 +361,12 @@ export async function POST({ request }) {
     <Form.FieldErrors />
   </Form.Field>
 
-  <Button type="submit" class="mt-3 w-full" disabled={isLoading}
-    >login</Button
-  >
+  <Button type="submit" disabled={isLoading}>
+    <!-- 📌 use loader icon when loading -->
+    {#if isLoading}<LoaderIcon class="mr-2 h-4 w-4 animate-spin" />{/if}
+    <!-- 📌 show text only when not loading -->
+    {#if !isLoading}{m.submit_login()}{/if}
+  </Button>
 </form>
 ```
 

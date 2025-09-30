@@ -1,0 +1,329 @@
+# POLÍTICA DE PRIVACIDADE
+
+**Última atualização: 29 de Janeiro de 2025**
+
+## INFORMAÇÕES GERAIS
+
+A presente Política de Privacidade contém informações sobre coleta, uso, armazenamento, tratamento e proteção dos dados pessoais dos usuários e visitantes da plataforma **Pic Flow**, acessível em **https://pic-flow.vercel.app/**, com a finalidade de demonstrar absoluta transparência quanto ao assunto e esclarecer a todos interessados sobre os tipos de dados que são coletados, os motivos da coleta e a forma como os usuários podem gerenciar ou excluir as suas informações pessoais.
+
+Esta Política de Privacidade aplica-se a todos os usuários e visitantes da plataforma Pic Flow e integra os Termos e Condições Gerais de Uso. A plataforma é operada por Walker - Research & Development, devidamente inscrita no CNPJ sob o nº 57.321.458/0001-60, situado em R. Dr. Francisco Pati, 322 - Vila São Francisco.
+
+O presente documento foi elaborado em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei 13.709/18), o Marco Civil da Internet (Lei 12.965/14) e o Regulamento da UE n. 2016/679 (GDPR). O documento poderá ser atualizado em decorrência de eventual atualização normativa, razão pela qual se convida o usuário a consultar periodicamente esta seção.
+
+## O QUE É O PIC FLOW
+
+O Pic Flow é uma plataforma que permite aos usuários criar **Energy Cards** — cartões digitais com arte gerada por inteligência artificial a partir de vídeos ou áudios enviados pelos usuários. O serviço inclui:
+
+- Upload e processamento de vídeos/áudios
+- Análise de conteúdo por IA (Gemini) para geração de prompts
+- Criação de arte visual personalizada
+- Geração de descrições multilíngues (PT, EN, ES)
+- Compartilhamento via links, QR codes e tags NFC
+- Integração com redes sociais (Instagram, LinkedIn, WhatsApp, YouTube, TikTok)
+
+## COMO COLETAMOS OS DADOS PESSOAIS
+
+Os dados pessoais do usuário e visitante são coletados pela plataforma das seguintes formas:
+
+### Criação de Conta
+
+Quando o usuário cria uma conta na plataforma Pic Flow, coletamos dados de identificação básicos, como:
+- E-mail
+- Nome completo
+- Imagem de perfil (opcional)
+- Método de autenticação (Google OAuth, e-mail/senha)
+
+### Upload de Conteúdo (Energy Cards)
+
+Quando o usuário envia vídeos ou áudios para criar Energy Cards, coletamos:
+- **Arquivos de vídeo/áudio**: armazenados temporariamente durante o processamento
+- **Thumbnails**: primeira imagem do vídeo, armazenada permanentemente
+- **Análise de IA**: prompts gerados pela análise do conteúdo
+- **Arte gerada**: imagens criadas pela IA, armazenadas permanentemente
+- **Descrições**: textos multilíngues gerados automaticamente
+- **Feedback do usuário**: reações (👍/👎), solicitações de regeneração
+
+### Navegação e Uso da Plataforma
+
+Coletamos informações sobre interação e acesso para garantir uma melhor experiência:
+- Páginas visitadas e tempo de permanência
+- Palavras-chave utilizadas em buscas
+- Compartilhamentos e visualizações de Energy Cards
+- URL de origem, navegador utilizado e endereço IP
+- Dispositivo e sistema operacional
+
+### Dados de Terceiros
+
+A plataforma Pic Flow recebe dados de terceiros quando o usuário faz login com perfis de:
+- Google (autenticação OAuth)
+- Outros provedores de autenticação configurados
+
+A utilização desses dados é autorizada previamente pelos usuários junto ao terceiro em questão.
+
+### Dados de Pagamento
+
+Para usuários que utilizam planos pagos ou pay-as-you-go:
+- Dados de transação processados via **Stripe** (Pix, cartão de crédito, Apple Pay, Google Pay)
+- Histórico de pagamentos e créditos
+- Informações de faturamento
+
+**Importante**: Não armazenamos dados completos de cartão de crédito. O processamento é realizado de forma segura pela Stripe.
+
+## DADOS PESSOAIS QUE COLETAMOS
+
+Os dados pessoais coletados incluem:
+
+### Dados de Cadastro
+- E-mail, nome completo, imagem de perfil
+- Preferências de idioma (PT, EN, ES)
+
+### Dados de Conteúdo
+- Vídeos e áudios enviados (armazenamento temporário)
+- Thumbnails gerados (permanente)
+- Prompts de IA e metadados de análise
+- Arte gerada e descrições multilíngues
+- Configurações de privacidade (público, link-only, grupos, QR/NFC)
+
+### Dados de Uso
+- Histórico de criação de Energy Cards
+- Compartilhamentos e visualizações
+- Feedback e interações (👍/👎, regenerações)
+- Analytics de uso da plataforma
+
+### Dados de Pagamento
+- Transações via Stripe
+- Histórico de compras e créditos
+- Plano ativo (Free, Pay-as-you-go, Partner, Business)
+
+### Dados de Parceiros (Partner Tier)
+- Dados de eventos e vendas
+- Comissões e repasses financeiros
+- Branding assets (logo, watermark)
+- Dados de clientes finais (com consentimento)
+
+## FINALIDADES DO TRATAMENTO DE DADOS
+
+Os dados pessoais coletados têm as seguintes finalidades:
+
+### Prestação do Serviço
+- Processar vídeos/áudios e gerar Energy Cards
+- Criar thumbnails e análises de IA
+- Gerar arte personalizada e descrições multilíngues
+- Armazenar e organizar Energy Cards do usuário
+- Facilitar compartilhamento via links, QR codes e NFC
+
+### Melhorias da Plataforma
+- Compreender como o usuário utiliza os serviços
+- Desenvolver novos recursos e estilos de arte
+- Otimizar performance e qualidade da IA
+- Realizar testes A/B e experimentação
+
+### Comunicação
+- Enviar notificações sobre processamento de Energy Cards
+- Alertas de conclusão e links de compartilhamento
+- Newsletter (mediante consentimento)
+- Suporte ao cliente
+
+### Segurança e Moderação
+- Detectar conteúdo NSFW ou inadequado
+- Prevenir abuso e violações dos Termos de Uso
+- Garantir conformidade legal
+
+### Pagamentos e Faturamento
+- Processar transações via Stripe
+- Gerenciar planos e limites de uso
+- Calcular comissões para parceiros
+
+### Conformidade Legal
+- Cumprir obrigações legais e regulatórias
+- Responder a solicitações de autoridades
+- Proteger direitos e propriedade da plataforma
+
+## CONSENTIMENTO E BASE LEGAL
+
+O tratamento de dados pessoais no Pic Flow baseia-se em:
+
+### Consentimento Explícito
+Ao criar uma conta e usar o serviço, o usuário consente com:
+- Análise de vídeos/áudios por IA (Gemini)
+- Geração de arte e descrições automáticas
+- Armazenamento de conteúdo conforme configurações de privacidade
+- Uso de cookies e tecnologias de rastreamento
+
+### Execução de Contrato
+Processamos dados necessários para:
+- Fornecer o serviço de criação de Energy Cards
+- Gerenciar conta e autenticação
+- Processar pagamentos
+
+### Legítimo Interesse
+Para fins de:
+- Segurança da plataforma e prevenção de fraudes
+- Melhorias de produto e analytics
+- Marketing direto (com opção de opt-out)
+
+### Obrigação Legal
+Para cumprir:
+- Requisitos fiscais e contábeis
+- Solicitações de autoridades competentes
+- Conformidade com LGPD e GDPR
+
+## COMPARTILHAMENTO DE DADOS
+
+### Dados Públicos
+Conforme configurações de privacidade do usuário, Energy Cards podem ser:
+- **Públicos**: visíveis em buscas e para todos os usuários
+- **Link-only**: acessíveis apenas via link direto
+- **Grupos**: compartilhados com grupos específicos
+- **QR/NFC**: acessíveis via código ou tag
+
+### Compartilhamento com Terceiros
+
+Compartilhamos dados com prestadores de serviços essenciais:
+
+#### Processamento de IA
+- **Google Gemini**: análise de vídeo/áudio para geração de prompts
+- **Serviços de geração de imagem**: criação de arte
+
+#### Armazenamento e Infraestrutura
+- **Provedores de cloud storage**: armazenamento de vídeos, thumbnails e arte gerada
+- **CDN**: distribuição de conteúdo
+
+#### Autenticação
+- **Better Auth**: gerenciamento de autenticação
+- **Google OAuth**: login social
+
+#### Pagamentos
+- **Stripe**: processamento de pagamentos (Pix, cartão, Apple/Google Pay)
+
+#### Analytics e Monitoramento
+- **Serviços de analytics**: métricas de uso e performance
+- **Ferramentas de monitoramento**: uptime e erros
+
+#### Redes Sociais
+- **Instagram, LinkedIn, WhatsApp, YouTube, TikTok**: compartilhamento de Energy Cards
+
+### Transferências Internacionais
+Alguns prestadores de serviços podem estar localizados fora do Brasil. Garantimos que tais transferências seguem as salvaguardas da LGPD e GDPR, incluindo cláusulas contratuais padrão.
+
+## RETENÇÃO E EXCLUSÃO DE DADOS
+
+### Vídeos e Áudios
+- **Armazenamento temporário**: deletados automaticamente após processamento bem-sucedido (até 7 dias)
+- **Falha no processamento**: mantidos por até 30 dias para troubleshooting
+
+### Energy Cards (Thumbnails e Arte)
+- **Armazenamento permanente**: enquanto a conta estiver ativa
+- **Após exclusão da conta**: removidos em até 90 dias (backups podem persistir por até 1 ano)
+
+### Dados de Conta
+- **Durante uso ativo**: mantidos indefinidamente
+- **Contas inativas**: após 2 anos sem login, enviamos aviso antes de exclusão
+
+### Dados de Pagamento
+- **Histórico de transações**: mantido por 5 anos (obrigação fiscal)
+- **Dados de cartão**: não armazenados (processados pela Stripe)
+
+### Logs e Analytics
+- **Logs de acesso**: 90 dias
+- **Analytics agregados**: indefinidamente (anonimizados)
+
+### Direito à Exclusão
+O usuário pode solicitar exclusão de dados a qualquer momento através do e-mail **adm@walker-di.com.br**. Exceções aplicam-se quando a lei exigir retenção (ex.: obrigações fiscais).
+
+## SEGURANÇA DOS DADOS
+
+A plataforma Pic Flow implementa medidas técnicas e organizacionais para proteger dados pessoais:
+
+### Medidas Técnicas
+- **Criptografia SSL/TLS**: para transmissão de dados
+- **Criptografia em repouso**: para dados armazenados
+- **Autenticação segura**: senhas com hash bcrypt
+- **Tokens de sessão**: com expiração automática
+
+### Medidas Organizacionais
+- **Acesso restrito**: apenas colaboradores autorizados
+- **Treinamento**: equipe treinada em proteção de dados
+- **Auditorias**: revisões periódicas de segurança
+- **Plano de resposta a incidentes**: procedimentos documentados
+
+### Limitações
+A plataforma não se exime de responsabilidade por:
+- Ataques de terceiros (hackers, crackers)
+- Culpa exclusiva do usuário (compartilhamento de senhas)
+
+### Notificação de Incidentes
+Em caso de violação de segurança que possa gerar risco aos direitos dos usuários, notificaremos:
+- Usuários afetados: em até 72 horas
+- Autoridade Nacional de Proteção de Dados (ANPD): conforme LGPD
+
+## COOKIES E TECNOLOGIAS DE RASTREAMENTO
+
+O Pic Flow utiliza cookies e tecnologias similares para:
+
+### Cookies Essenciais
+- Autenticação e sessão do usuário
+- Preferências de idioma
+- Segurança e prevenção de fraudes
+
+### Cookies de Analytics
+- Métricas de uso e performance
+- Testes A/B e experimentação
+- Heatmaps e comportamento do usuário
+
+### Cookies de Marketing
+- Anúncios personalizados
+- Remarketing
+- Rastreamento de conversões
+
+### Gerenciamento de Cookies
+O usuário pode:
+- Aceitar ou recusar cookies não essenciais
+- Configurar preferências no navegador
+- Solicitar exclusão de dados de rastreamento
+
+**Nota**: Recusar cookies pode limitar funcionalidades da plataforma.
+
+## DIREITOS DO USUÁRIO (LGPD)
+
+Conforme a LGPD, o usuário tem direito a:
+
+1. **Confirmação e acesso**: saber se tratamos seus dados e acessá-los
+2. **Correção**: atualizar dados incompletos ou incorretos
+3. **Anonimização, bloqueio ou eliminação**: de dados desnecessários ou tratados em desconformidade
+4. **Portabilidade**: receber dados em formato estruturado
+5. **Eliminação**: de dados tratados com consentimento
+6. **Informação**: sobre compartilhamento com terceiros
+7. **Revogação do consentimento**: a qualquer momento
+8. **Oposição**: a tratamento realizado com base em legítimo interesse
+
+Para exercer seus direitos, entre em contato: **adm@walker-di.com.br**
+
+## MENORES DE IDADE
+
+O Pic Flow não é destinado a menores de **13 anos**. Não coletamos intencionalmente dados de crianças. Se identificarmos coleta inadvertida, os dados serão excluídos imediatamente.
+
+Para usuários entre **13 e 18 anos**, recomendamos supervisão parental. Pais ou responsáveis podem solicitar exclusão de dados de menores.
+
+## ALTERAÇÕES A ESTA POLÍTICA
+
+Reservamos o direito de modificar esta Política de Privacidade a qualquer momento. Alterações significativas serão comunicadas via:
+- E-mail para usuários cadastrados
+- Notificação na plataforma
+- Atualização da data no topo deste documento
+
+O uso continuado da plataforma após alterações constitui aceitação das novas condições.
+
+## JURISDIÇÃO E LEI APLICÁVEL
+
+Esta Política é regida pelas leis brasileiras. Eventuais litígios serão resolvidos no foro da comarca da sede da empresa, salvo disposição legal em contrário.
+
+## CONTATO
+
+Para dúvidas, solicitações ou exercício de direitos relacionados a esta Política de Privacidade:
+
+**E-mail**: adm@walker-di.com.br  
+**Plataforma**: https://pic-flow.vercel.app/  
+**Endereço**: R. Dr. Francisco Pati, 322 - Vila São Francisco  
+**CNPJ**: 57.321.458/0001-60
+

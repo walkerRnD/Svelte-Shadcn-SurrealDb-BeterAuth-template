@@ -1,5 +1,7 @@
 import { betterAuth } from "better-auth";
 import { surrealAdapter } from "$lib/domain/auth/adapters/better-auth.adapter";
+import { emailService } from "./email";
+import { loadEmailMessages, getResetPasswordMessages } from "../email-templates/i18n-loader";
 
 function buildAuth(baseURL: string) {
   const BETTER_AUTH_SECRET = process.env.BETTER_AUTH_SECRET;
@@ -24,15 +26,39 @@ function buildAuth(baseURL: string) {
       maxPasswordLength: 128,
       autoSignIn: true,
       sendResetPassword: async ({ user, url, token }) => {
-        // TODO: Implement email sending service
-        console.log(`Password reset requested for ${user.email}`);
-        console.log(`Reset URL: ${url}`);
-        console.log(`Token: ${token}`);
+        try {
+          // Load i18n messages (default to 'en', can be extended to detect user locale)
+          const emailMessages = await loadEmailMessages('en');
+          const messages = getResetPasswordMessages(emailMessages);
+
+          const result = await emailService.sendPasswordReset(user.email, {
+            userName: user.name,
+            resetUrl: url,
+            expiresInHours: 1,
+            messages,
+          });
+
+          if (result.error) {
+            console.error(`❌ Failed to send reset email to ${user.email}:`, result.error);
+            // Don't throw - Better Auth will handle the error gracefully
+          } else {
+            console.log(`✅ Password reset email sent to ${user.email} (ID: ${result.id})`);
+          }
+        } catch (e: any) {
+          console.error(`❌ Error sending reset email to ${user.email}:`, e);
+        }
       },
       resetPasswordTokenExpiresIn: 3600, // 1 hour
     },
 
     database: surrealAdapter,
+
+    // User management
+    user: {
+      deleteUser: {
+        enabled: true,
+      },
+    },
 
     // Session configuration
     session: {

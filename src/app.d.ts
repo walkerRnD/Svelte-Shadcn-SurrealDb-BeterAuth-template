@@ -30,4 +30,11 @@ declare global {
 	}
 }
 
+// MDX/Svex module declarations
+declare module '*.svx' {
+	import type { ComponentType, SvelteComponent } from 'svelte';
+	const component: ComponentType<SvelteComponent>;
+	export default component;
+}
+
 export { };

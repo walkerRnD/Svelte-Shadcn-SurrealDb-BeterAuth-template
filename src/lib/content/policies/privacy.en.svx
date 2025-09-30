@@ -1,0 +1,329 @@
+# PRIVACY POLICY
+
+**Last updated: January 29, 2025**
+
+## GENERAL INFORMATION
+
+This Privacy Policy contains information about the collection, use, storage, processing, and protection of personal data of users and visitors of the **Pic Flow** platform, accessible at **https://pic-flow.vercel.app/**, with the purpose of demonstrating absolute transparency on the subject and clarifying to all interested parties about the types of data collected, the reasons for collection, and how users can manage or delete their personal information.
+
+This Privacy Policy applies to all users and visitors of the Pic Flow platform and is part of the General Terms and Conditions of Use. The platform is operated by Walker - Research & Development, duly registered under CNPJ No. 57.321.458/0001-60, located at R. Dr. Francisco Pati, 322 - Vila São Francisco.
+
+This document was prepared in accordance with the Brazilian General Data Protection Law (Law 13.709/18), the Brazilian Civil Rights Framework for the Internet (Law 12.965/14), and the EU Regulation No. 2016/679 (GDPR). The document may be updated due to regulatory changes, which is why users are invited to periodically consult this section.
+
+## WHAT IS PIC FLOW
+
+Pic Flow is a platform that allows users to create **Energy Cards** — digital cards with AI-generated art from videos or audio files uploaded by users. The service includes:
+
+- Video/audio upload and processing
+- AI content analysis (Gemini) for prompt generation
+- Personalized visual art creation
+- Multilingual description generation (PT, EN, ES)
+- Sharing via links, QR codes, and NFC tags
+- Social media integration (Instagram, LinkedIn, WhatsApp, YouTube, TikTok)
+
+## HOW WE COLLECT PERSONAL DATA
+
+Personal data from users and visitors is collected by the platform in the following ways:
+
+### Account Creation
+
+When a user creates an account on the Pic Flow platform, we collect basic identification data such as:
+- Email
+- Full name
+- Profile picture (optional)
+- Authentication method (Google OAuth, email/password)
+
+### Content Upload (Energy Cards)
+
+When users upload videos or audio to create Energy Cards, we collect:
+- **Video/audio files**: temporarily stored during processing
+- **Thumbnails**: first frame of the video, permanently stored
+- **AI analysis**: prompts generated from content analysis
+- **Generated art**: AI-created images, permanently stored
+- **Descriptions**: automatically generated multilingual texts
+- **User feedback**: reactions (👍/👎), regeneration requests
+
+### Platform Navigation and Usage
+
+We collect information about interaction and access to ensure a better experience:
+- Pages visited and time spent
+- Keywords used in searches
+- Energy Card shares and views
+- Referral URL, browser used, and IP address
+- Device and operating system
+
+### Third-Party Data
+
+The Pic Flow platform receives data from third parties when users log in with profiles from:
+- Google (OAuth authentication)
+- Other configured authentication providers
+
+The use of this data is previously authorized by users with the third party in question.
+
+### Payment Data
+
+For users using paid plans or pay-as-you-go:
+- Transaction data processed via **Stripe** (Pix, credit card, Apple Pay, Google Pay)
+- Payment history and credits
+- Billing information
+
+**Important**: We do not store complete credit card data. Processing is securely handled by Stripe.
+
+## PERSONAL DATA WE COLLECT
+
+The personal data collected includes:
+
+### Registration Data
+- Email, full name, profile picture
+- Language preferences (PT, EN, ES)
+
+### Content Data
+- Uploaded videos and audio (temporary storage)
+- Generated thumbnails (permanent)
+- AI prompts and analysis metadata
+- Generated art and multilingual descriptions
+- Privacy settings (public, link-only, groups, QR/NFC)
+
+### Usage Data
+- Energy Card creation history
+- Shares and views
+- Feedback and interactions (👍/👎, regenerations)
+- Platform usage analytics
+
+### Payment Data
+- Transactions via Stripe
+- Purchase history and credits
+- Active plan (Free, Pay-as-you-go, Partner, Business)
+
+### Partner Data (Partner Tier)
+- Event and sales data
+- Commissions and financial transfers
+- Branding assets (logo, watermark)
+- End customer data (with consent)
+
+## PURPOSES OF DATA PROCESSING
+
+The personal data collected has the following purposes:
+
+### Service Provision
+- Process videos/audio and generate Energy Cards
+- Create thumbnails and AI analysis
+- Generate personalized art and multilingual descriptions
+- Store and organize user's Energy Cards
+- Facilitate sharing via links, QR codes, and NFC
+
+### Platform Improvements
+- Understand how users utilize services
+- Develop new features and art styles
+- Optimize AI performance and quality
+- Conduct A/B testing and experimentation
+
+### Communication
+- Send notifications about Energy Card processing
+- Completion alerts and sharing links
+- Newsletter (with consent)
+- Customer support
+
+### Security and Moderation
+- Detect NSFW or inappropriate content
+- Prevent abuse and Terms of Use violations
+- Ensure legal compliance
+
+### Payments and Billing
+- Process transactions via Stripe
+- Manage plans and usage limits
+- Calculate partner commissions
+
+### Legal Compliance
+- Fulfill legal and regulatory obligations
+- Respond to authority requests
+- Protect platform rights and property
+
+## CONSENT AND LEGAL BASIS
+
+Personal data processing at Pic Flow is based on:
+
+### Explicit Consent
+By creating an account and using the service, users consent to:
+- AI analysis of videos/audio (Gemini)
+- Automatic art and description generation
+- Content storage according to privacy settings
+- Use of cookies and tracking technologies
+
+### Contract Execution
+We process data necessary to:
+- Provide Energy Card creation service
+- Manage account and authentication
+- Process payments
+
+### Legitimate Interest
+For purposes of:
+- Platform security and fraud prevention
+- Product improvements and analytics
+- Direct marketing (with opt-out option)
+
+### Legal Obligation
+To comply with:
+- Tax and accounting requirements
+- Requests from competent authorities
+- LGPD and GDPR compliance
+
+## DATA SHARING
+
+### Public Data
+According to user privacy settings, Energy Cards can be:
+- **Public**: visible in searches and to all users
+- **Link-only**: accessible only via direct link
+- **Groups**: shared with specific groups
+- **QR/NFC**: accessible via code or tag
+
+### Sharing with Third Parties
+
+We share data with essential service providers:
+
+#### AI Processing
+- **Google Gemini**: video/audio analysis for prompt generation
+- **Image generation services**: art creation
+
+#### Storage and Infrastructure
+- **Cloud storage providers**: storage of videos, thumbnails, and generated art
+- **CDN**: content distribution
+
+#### Authentication
+- **Better Auth**: authentication management
+- **Google OAuth**: social login
+
+#### Payments
+- **Stripe**: payment processing (Pix, card, Apple/Google Pay)
+
+#### Analytics and Monitoring
+- **Analytics services**: usage and performance metrics
+- **Monitoring tools**: uptime and errors
+
+#### Social Media
+- **Instagram, LinkedIn, WhatsApp, YouTube, TikTok**: Energy Card sharing
+
+### International Transfers
+Some service providers may be located outside Brazil. We ensure such transfers follow LGPD and GDPR safeguards, including standard contractual clauses.
+
+## DATA RETENTION AND DELETION
+
+### Videos and Audio
+- **Temporary storage**: automatically deleted after successful processing (up to 7 days)
+- **Processing failure**: kept for up to 30 days for troubleshooting
+
+### Energy Cards (Thumbnails and Art)
+- **Permanent storage**: while account is active
+- **After account deletion**: removed within 90 days (backups may persist for up to 1 year)
+
+### Account Data
+- **During active use**: kept indefinitely
+- **Inactive accounts**: after 2 years without login, we send notice before deletion
+
+### Payment Data
+- **Transaction history**: kept for 5 years (tax obligation)
+- **Card data**: not stored (processed by Stripe)
+
+### Logs and Analytics
+- **Access logs**: 90 days
+- **Aggregated analytics**: indefinitely (anonymized)
+
+### Right to Deletion
+Users can request data deletion at any time via email **adm@walker-di.com.br**. Exceptions apply when law requires retention (e.g., tax obligations).
+
+## DATA SECURITY
+
+The Pic Flow platform implements technical and organizational measures to protect personal data:
+
+### Technical Measures
+- **SSL/TLS encryption**: for data transmission
+- **Encryption at rest**: for stored data
+- **Secure authentication**: bcrypt password hashing
+- **Session tokens**: with automatic expiration
+
+### Organizational Measures
+- **Restricted access**: only authorized personnel
+- **Training**: team trained in data protection
+- **Audits**: periodic security reviews
+- **Incident response plan**: documented procedures
+
+### Limitations
+The platform is not exempt from liability for:
+- Third-party attacks (hackers, crackers)
+- Exclusive user fault (password sharing)
+
+### Incident Notification
+In case of a security breach that may pose a risk to user rights, we will notify:
+- Affected users: within 72 hours
+- National Data Protection Authority (ANPD): as per LGPD
+
+## COOKIES AND TRACKING TECHNOLOGIES
+
+Pic Flow uses cookies and similar technologies for:
+
+### Essential Cookies
+- User authentication and session
+- Language preferences
+- Security and fraud prevention
+
+### Analytics Cookies
+- Usage and performance metrics
+- A/B testing and experimentation
+- Heatmaps and user behavior
+
+### Marketing Cookies
+- Personalized ads
+- Remarketing
+- Conversion tracking
+
+### Cookie Management
+Users can:
+- Accept or refuse non-essential cookies
+- Configure browser preferences
+- Request deletion of tracking data
+
+**Note**: Refusing cookies may limit platform functionality.
+
+## USER RIGHTS (LGPD)
+
+According to LGPD, users have the right to:
+
+1. **Confirmation and access**: know if we process their data and access it
+2. **Correction**: update incomplete or incorrect data
+3. **Anonymization, blocking, or deletion**: of unnecessary data or data processed in non-compliance
+4. **Portability**: receive data in structured format
+5. **Deletion**: of data processed with consent
+6. **Information**: about sharing with third parties
+7. **Consent revocation**: at any time
+8. **Opposition**: to processing based on legitimate interest
+
+To exercise your rights, contact: **adm@walker-di.com.br**
+
+## MINORS
+
+Pic Flow is not intended for children under **13 years old**. We do not intentionally collect data from children. If we identify inadvertent collection, data will be deleted immediately.
+
+For users between **13 and 18 years old**, we recommend parental supervision. Parents or guardians may request deletion of minors' data.
+
+## CHANGES TO THIS POLICY
+
+We reserve the right to modify this Privacy Policy at any time. Significant changes will be communicated via:
+- Email to registered users
+- Platform notification
+- Date update at the top of this document
+
+Continued use of the platform after changes constitutes acceptance of the new conditions.
+
+## JURISDICTION AND APPLICABLE LAW
+
+This Policy is governed by Brazilian laws. Any disputes will be resolved in the court of the company's headquarters, unless otherwise provided by law.
+
+## CONTACT
+
+For questions, requests, or to exercise rights related to this Privacy Policy:
+
+**Email**: adm@walker-di.com.br  
+**Platform**: https://pic-flow.vercel.app/  
+**Address**: R. Dr. Francisco Pati, 322 - Vila São Francisco  
+**CNPJ**: 57.321.458/0001-60
+

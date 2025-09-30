@@ -1,0 +1,327 @@
+# TÉRMINOS DE SERVICIO
+
+**Última actualización: 29 de enero de 2025**
+
+## ACEPTACIÓN DE TÉRMINOS
+
+¡Bienvenido a **Pic Flow**! Al acceder o usar nuestra plataforma en **https://pic-flow.vercel.app/**, usted acepta cumplir y estar sujeto a estos Términos de Servicio. Si no está de acuerdo con alguna parte de estos términos, no debe usar nuestros servicios.
+
+Estos Términos de Servicio constituyen un acuerdo legal entre usted (el "Usuario") y Walker - Research & Development, CNPJ 57.321.458/0001-60, ubicada en R. Dr. Francisco Pati, 322 - Vila São Francisco ("Pic Flow", "nosotros", "nuestro").
+
+## QUÉ ES PIC FLOW
+
+Pic Flow es una plataforma que le permite crear **Energy Cards** — tarjetas digitales con arte generado por IA a partir de videos o archivos de audio. El servicio incluye:
+
+- Carga y procesamiento de video/audio
+- Análisis de contenido con IA (Gemini)
+- Generación automática de arte visual personalizado
+- Descripciones multilingües (PT, EN, ES)
+- Compartir mediante enlaces, códigos QR y etiquetas NFC
+- Integración con redes sociales
+
+## ELEGIBILIDAD
+
+Para usar Pic Flow, usted debe:
+- Tener al menos **13 años de edad**
+- Proporcionar información verdadera y precisa durante el registro
+- Tener capacidad legal para celebrar contratos vinculantes
+- No estar prohibido de usar el servicio por ninguna ley aplicable
+
+Los menores entre 13 y 18 años deben tener supervisión parental.
+
+## CREACIÓN DE CUENTA
+
+### Registro
+Para usar Pic Flow, debe crear una cuenta proporcionando:
+- Correo electrónico válido
+- Nombre completo
+- Contraseña segura (o autenticación mediante Google OAuth)
+
+### Responsabilidad de la Cuenta
+Usted es responsable de:
+- Mantener la confidencialidad de sus credenciales
+- Todas las actividades realizadas en su cuenta
+- Notificarnos inmediatamente sobre uso no autorizado
+
+No comparta su cuenta con terceros.
+
+## DESCRIPCIÓN DEL SERVICIO
+
+### Energy Cards
+Pic Flow permite crear Energy Cards mediante:
+1. **Carga**: subir video o audio (máx. 100MB, 5 min)
+2. **Análisis**: IA analiza el contenido y genera prompts
+3. **Generación**: IA crea arte visual personalizado
+4. **Descripción**: generación automática de texto multilingüe
+5. **Compartir**: enlaces, QR codes, NFC tags
+
+### Limitaciones del Servicio
+- Tamaño máximo de archivo: 100MB
+- Duración máxima de video: 5 minutos
+- Formatos soportados: MP4, MOV, MP3, WAV, M4A
+- Límites de uso según el plan (gratuito/premium)
+
+## PLANES Y PAGOS
+
+### Plan Gratuito
+- 3 Energy Cards por mes
+- Resolución estándar
+- Marca de agua de Pic Flow
+- Compartir básico
+
+### Plan Premium (Futuro)
+- Energy Cards ilimitados
+- Alta resolución
+- Sin marca de agua
+- Análisis avanzado de IA
+- Soporte prioritario
+- Personalización avanzada
+
+### Facturación
+- Pagos procesados mediante proveedores de pago seguros
+- Renovación automática (puede cancelarse en cualquier momento)
+- Sin reembolsos por servicios parcialmente utilizados
+- Precios sujetos a cambios con aviso previo de 30 días
+
+## PROPIEDAD INTELECTUAL
+
+### Su Contenido
+Usted retiene todos los derechos sobre:
+- Videos/audio originales que carga
+- Contenido que crea usando Pic Flow
+
+Al usar el servicio, nos otorga una licencia limitada para:
+- Procesar su contenido para generar Energy Cards
+- Almacenar y entregar Energy Cards
+- Mostrar contenido compartido públicamente
+
+### Nuestro Contenido
+Pic Flow retiene todos los derechos sobre:
+- Código de la plataforma
+- Diseño e interfaz
+- Marca y logotipos
+- Documentación
+
+### Contenido Generado por IA
+El arte generado por IA es:
+- Propiedad del usuario que lo generó
+- Sujeto a términos de los proveedores de IA
+- No puede ser usado para entrenar modelos de IA sin consentimiento
+
+## DERECHOS Y RESPONSABILIDADES DEL USUARIO
+
+### Usted Tiene Derecho a:
+- Acceder y gestionar su cuenta
+- Crear y compartir Energy Cards
+- Eliminar su contenido en cualquier momento
+- Exportar sus datos
+- Cancelar su cuenta
+
+### Usted es Responsable de:
+- Contenido que carga y comparte
+- Cumplir con estos términos
+- Respetar derechos de terceros
+- Uso apropiado de la plataforma
+
+### Usted Declara y Garantiza que:
+- Tiene todos los derechos necesarios sobre el contenido enviado
+- El contenido no viola derechos de terceros
+- Ha obtenido consentimiento de personas identificables en el contenido
+
+## CONTENIDO PROHIBIDO
+
+Está estrictamente prohibido cargar o crear Energy Cards con:
+
+### Contenido Ilegal
+- Material que viole leyes brasileñas o internacionales
+- Contenido que promueva actividades ilegales
+
+### Contenido Adulto/NSFW
+- Desnudez o contenido sexualmente explícito
+- Pornografía o material erótico
+
+### Violencia y Odio
+- Contenido violento, gore o impactante
+- Discurso de odio, discriminación o acoso
+- Amenazas o intimidación
+
+### Derechos de Terceros
+- Material con derechos de autor sin autorización
+- Contenido que infrinja marcas registradas
+- Información privada de terceros sin consentimiento
+
+### Spam y Engaño
+- Contenido engañoso o fraudulento
+- Spam o publicidad no solicitada
+- Phishing o malware
+
+### Menores
+- Contenido que explote o ponga en peligro a menores
+- Imágenes de menores sin consentimiento parental
+
+**Violaciones resultarán en suspensión o terminación inmediata de la cuenta.**
+
+## MODERACIÓN DE CONTENIDO
+
+### Revisión Automatizada
+- IA analiza contenido en busca de violaciones
+- Detección automática de contenido prohibido
+- Filtros de seguridad en tiempo real
+
+### Revisión Manual
+- Contenido reportado es revisado por moderadores
+- Decisiones tomadas dentro de 48 horas
+- Apelaciones permitidas dentro de 7 días
+
+### Acciones de Moderación
+- **Advertencia**: primera violación menor
+- **Suspensión temporal**: violaciones repetidas (7-30 días)
+- **Terminación permanente**: violaciones graves o repetidas
+- **Reporte legal**: contenido ilegal reportado a autoridades
+
+## COMPARTIR Y PRIVACIDAD
+
+### Opciones de Compartir
+- **Privado**: solo usted puede ver
+- **Enlace**: cualquiera con el enlace puede ver
+- **Público**: visible en galería pública (futuro)
+
+### Control de Privacidad
+- Puede cambiar configuraciones de privacidad en cualquier momento
+- Puede eliminar Energy Cards compartidos
+- Puede revocar acceso a enlaces compartidos
+
+### Contenido Compartido Públicamente
+Al compartir públicamente, usted acepta que:
+- Otros usuarios pueden ver su contenido
+- Pic Flow puede mostrar su contenido en marketing (con atribución)
+- El contenido puede ser indexado por motores de búsqueda
+
+## USO ACEPTABLE
+
+### Usted Acepta:
+- Usar el servicio solo para fines legales
+- Respetar derechos de otros usuarios
+- No intentar acceder a cuentas de otros
+- No interferir con la operación de la plataforma
+- No usar el servicio para spam o abuso
+
+### Usted No Debe:
+- Hacer ingeniería inversa de la plataforma
+- Usar bots o automatización sin autorización
+- Sobrecargar o atacar nuestros servidores
+- Revender o redistribuir el servicio
+- Violar leyes aplicables
+
+## LIMITACIÓN DE RESPONSABILIDAD
+
+### Descargo de Garantías
+Pic Flow se proporciona "TAL CUAL" sin garantías de ningún tipo:
+- No garantizamos disponibilidad ininterrumpida
+- No garantizamos resultados específicos de IA
+- No somos responsables de contenido generado por usuarios
+- No garantizamos compatibilidad con todos los dispositivos
+
+### Limitación de Daños
+En la máxima medida permitida por la ley:
+- No somos responsables de daños indirectos o consecuentes
+- Nuestra responsabilidad se limita al monto pagado en los últimos 12 meses
+- No somos responsables de pérdida de datos o contenido
+
+### Indemnización
+Usted acepta indemnizarnos contra:
+- Reclamaciones derivadas de su contenido
+- Violaciones de estos términos
+- Violaciones de derechos de terceros
+- Uso no autorizado de su cuenta
+
+## TERMINACIÓN
+
+### Por el Usuario
+Puede cancelar su cuenta en cualquier momento:
+- Vaya a Configuraciones > Eliminar Cuenta
+- Todos los datos serán eliminados dentro de 30 días
+- Sin reembolsos por servicios no utilizados
+
+### Por Pic Flow
+Podemos suspender o terminar su cuenta si:
+- Viola estos términos
+- Usa el servicio de manera fraudulenta
+- No paga tarifas adeudadas
+- Por razones legales o regulatorias
+
+### Efectos de la Terminación
+Tras la terminación:
+- Pierde acceso a su cuenta y contenido
+- Energy Cards compartidos pueden permanecer accesibles
+- Obligaciones de pago permanecen vigentes
+- Cláusulas de limitación de responsabilidad sobreviven
+
+## CAMBIOS EN EL SERVICIO
+
+Nos reservamos el derecho de:
+- Modificar o discontinuar características
+- Cambiar precios con aviso de 30 días
+- Actualizar estos términos (notificaremos cambios significativos)
+- Suspender el servicio para mantenimiento
+
+El uso continuado después de cambios constituye aceptación.
+
+## RESOLUCIÓN DE DISPUTAS
+
+### Ley Aplicable
+Estos términos se rigen por las leyes de Brasil.
+
+### Jurisdicción
+Disputas serán resueltas en los tribunales de Brasil.
+
+### Arbitraje (Opcional)
+Podemos ofrecer arbitraje como alternativa a litigio.
+
+### Limitación de Tiempo
+Reclamaciones deben presentarse dentro de 1 año desde que surgió la causa.
+
+## DISPOSICIONES GENERALES
+
+### Acuerdo Completo
+Estos términos constituyen el acuerdo completo entre usted y Pic Flow.
+
+### Divisibilidad
+Si alguna disposición es inválida, las demás permanecen vigentes.
+
+### Renuncia
+No hacer cumplir un derecho no constituye renuncia a ese derecho.
+
+### Cesión
+No puede transferir estos términos sin nuestro consentimiento.
+
+### Notificaciones
+Notificaciones serán enviadas al email registrado en su cuenta.
+
+## CONTACTO
+
+Para preguntas sobre estos términos:
+
+**Walker - Research & Development**
+- Email: stylethewalker@gmail.com
+- Dirección: R. Dr. Francisco Pati, 322 - Vila São Francisco
+- CNPJ: 57.321.458/0001-60
+
+**Soporte**
+- Email: stylethewalker@gmail.com
+- Horario: Lunes a Viernes, 9:00-18:00 (horario de Brasil)
+
+## RECONOCIMIENTO
+
+Al usar Pic Flow, usted reconoce que:
+- Ha leído y entendido estos términos
+- Acepta estar sujeto a estos términos
+- Tiene autoridad para aceptar estos términos
+- Cumplirá con todas las leyes aplicables
+
+---
+
+**Última actualización: 29 de enero de 2025**
+
+Gracias por usar Pic Flow. ¡Disfrute creando sus Energy Cards!
+
